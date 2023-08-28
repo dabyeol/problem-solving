@@ -1,0 +1,48 @@
+## 이론
+
+### 헤더 파일 포함시키기
+
+```c {1}
+#include <stdio.h>
+```
+
+`stdio.h{:text}`는 표준 입출력(Standard I/O) 함수를 사용하기 위해 필요한 헤더에요.
+여기에 우리가 자주 쓸 입출력 함수, 각각 `scanf(){:c}`와 `printf(){:c}` 함수가 포함되어 있어요.
+
+헤더 파일은 `#include{:c}`로 포함시킬 수 있어요.
+
+### main 함수
+
+```c {3}
+#include <stdio.h>
+
+int main(void) {}
+```
+
+`main(){:c}` 함수는 프로그램의 시작점이에요.
+프로그램을 실행하면 `main(){:c}` 함수부터 실행되고, `main(){:c}` 함수가 끝나면 프로그램도 끝나요.
+
+### 출력하기
+
+```c {4}
+#include <stdio.h>
+
+int main(void) {
+  printf("Hello, World!\n");
+}
+```
+
+`printf(){:c}` 함수는 출력을 해주는 함수에요.
+
+`\n{:text}`은 줄바꿈을 의미해요.
+프로그램이 끝나기 전에는 항상 줄바꿈을 해주는 것이 좋아요.
+
+## 코드
+
+```c
+#include <stdio.h>
+
+int main(void) {
+  printf("Hello, World!\n");
+}
+```
