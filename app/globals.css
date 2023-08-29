@@ -99,6 +99,7 @@ body {
   color: var(--text);
   word-break: keep-all;
   overflow-wrap: break-word;
+  -webkit-text-size-adjust: 100%;
 }
 
 a {
