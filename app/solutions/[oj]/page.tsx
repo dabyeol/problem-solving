@@ -4,6 +4,10 @@ import { Container, Section } from '@/lib/client/style';
 import { oj } from '@/lib/server/oj';
 import { getQuestions } from '@/lib/server/post';
 
+export async function generateStaticParams() {
+  return oj.map(({ id }) => ({ oj: id }));
+}
+
 interface OJProps {
   params: {
     oj: string;
