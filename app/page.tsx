@@ -1,8 +1,11 @@
 'use client';
 
+import IconButton from '@/components/icon-button';
 import { Container, Grid, Section, Wrapper } from '@/lib/client/style';
+import { oj } from '@/lib/server/oj';
 import styled from '@emotion/styled';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Banner = styled.header`
   position: relative;
@@ -39,20 +42,24 @@ export default function Home() {
       <Banner>
         <Backdrop src="/images/backdrop.jpg" alt="Backdrop" priority fill />
         <Container>
-          <Wrapper>
-            <BannerText>
-              기본에 충실한
-              <br />
-              문제 풀이
-            </BannerText>
-          </Wrapper>
+          <BannerText>
+            기본에 충실한
+            <br />
+            문제 풀이
+          </BannerText>
         </Container>
       </Banner>
       <Container>
         <Wrapper>
           <Section>
             <h2>문제 풀이</h2>
-            <Grid></Grid>
+            <Grid>
+              {oj.map(oj => (
+                <Link key={oj.id} href={`/solutions/${oj.id}`}>
+                  <IconButton src={`/images/oj/${oj.id}.png`} text={oj.name} />
+                </Link>
+              ))}
+            </Grid>
           </Section>
         </Wrapper>
       </Container>

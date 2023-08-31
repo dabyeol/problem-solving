@@ -17,7 +17,7 @@ const Backdrop = styled(Image)`
   object-fit: cover;
 `;
 
-const Text = styled.h2`
+const Text = styled.h1`
   color: #ffffff;
   font-size: var(--text-2xl);
   margin: 0;

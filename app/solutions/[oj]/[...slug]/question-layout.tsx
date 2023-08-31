@@ -2,7 +2,7 @@
 
 import Button from '@/components/button';
 import { QuestionData } from '@/lib/client/interface';
-import { MDXLayout, Section, Wrapper } from '@/lib/client/style';
+import { Prose, Section, Wrapper } from '@/lib/client/style';
 import styled from '@emotion/styled';
 
 const Title = styled.h1`
@@ -39,7 +39,7 @@ export default function QuestionLayout({ data, children }: QuestionProps) {
         </Section>
       </Wrapper>
 
-      <MDXLayout>{children}</MDXLayout>
+      <Prose>{children}</Prose>
     </>
   );
 }

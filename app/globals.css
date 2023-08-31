@@ -195,7 +195,7 @@ p {
 pre {
   /* font-size: 0.875rem; 14px */
   line-height: 1.6;
-  margin-bottom: 1.75rem;
+  margin: 0;
   padding: 16px 0px;
   border-radius: 8px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
@@ -203,7 +203,6 @@ pre {
   overflow: auto;
 
   @media (max-width: 809px) {
-    margin-bottom: 1.25rem;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
   }
 }
@@ -220,6 +219,14 @@ pre > code {
 [data-highlighted-line] {
   background-color: var(--secondary);
   border-left: var(--text) 4px solid;
+}
+
+[data-rehype-pretty-code-fragment] {
+  margin-bottom: 2rem; /* 32px */
+
+  @media (max-width: 809px) {
+    margin-bottom: 1.5rem; /* 24px */
+  }
 }
 
 code:not(:where(pre *)) {

@@ -1,13 +1,14 @@
-import matter from 'gray-matter';
+import { getQuestionData } from '@/lib/server/post';
 
 interface Props {
-  params: { slug: string[] };
+  params: {
+    oj: string;
+    slug: string[];
+  };
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { data } = matter.read(
-    `posts/solutions/${params.slug.slice(0, -1).join('/')}/question.mdx`
-  );
+  const data = getQuestionData([params.oj, ...params.slug].join('/'));
 
   return { title: `${data.title} (${data.subtitle})` };
 }

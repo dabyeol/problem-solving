@@ -82,11 +82,10 @@ export const Caption = styled.div`
   }
 `;
 
-export const MDXLayout = styled.div`
+export const Prose = styled.article`
   width: 100%;
 
-  & > :last-child,
-  & > :last-child > * {
+  & > :last-child {
     margin-bottom: 0 !important;
   }
 

@@ -15,29 +15,28 @@ const Button = styled.div`
   overflow: hidden;
   align-content: center;
   flex-wrap: nowrap;
-  gap: 16px;
+  gap: 12px;
   border-radius: 16px;
   cursor: pointer;
 `;
 
 const Icon = styled(Image)`
-  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   border-radius: 100%;
 `;
 
-const Text = styled.h6`
+const Text = styled.span`
+  font-weight: 600;
   flex: 1;
-  text-align: center;
 `;
 
-interface LoginButtonProps {
+interface IconButtonProps {
   src: string;
   text: string;
   onClick?: () => void;
 }
 
-export default function LoginButton({ src, text, onClick }: LoginButtonProps) {
+export default function IconButton({ src, text, onClick }: IconButtonProps) {
   return (
     <Button onClick={onClick}>
       <Icon src={src} width={24} height={24} alt="Icon" priority />
