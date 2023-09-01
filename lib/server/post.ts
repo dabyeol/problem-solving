@@ -1,5 +1,6 @@
 import { sync } from 'glob';
 import matter from 'gray-matter';
+import dynamic from 'next/dynamic';
 import { QuestionData } from '../client/interface';
 
 /**
@@ -38,6 +39,21 @@ export function getQuestions(oj: string) {
 export function getQuestionData(path: string) {
   return matter.read(`posts/solutions/${path}/question.mdx`)
     .data as QuestionData;
+}
+
+/**
+ * Get the question of a solution.
+ * @param path The path of the question.
+ * @returns The question.
+ */
+export function getQuestion(path: string) {
+  // Read frontmatter from question.mdx
+  const questionData = getQuestionData(path);
+
+  return {
+    questionData,
+    Question: dynamic(() => import(`@/posts/solutions/${path}/question.mdx`)),
+  };
 }
 
 /**

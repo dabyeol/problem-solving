@@ -2,10 +2,9 @@ import Banner from '@/components/banner';
 import { Container, Wrapper } from '@/lib/client/style';
 import {
   getAllSolutions,
-  getQuestionData,
+  getQuestion,
   getSolutionLanguages,
 } from '@/lib/server/post';
-import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import QuestionLayout from './question-layout';
 import SolutionLayout from './solution-layout';
@@ -19,25 +18,14 @@ interface Params {
   slug: string[];
 }
 
-function getQuestion({ oj, slug }: Params) {
-  // Read frontmatter from question.mdx
-  const questionData = getQuestionData([oj, ...slug].join('/'));
-
-  return {
-    questionData,
-    Question: dynamic(
-      () => import(`@/posts/solutions/${oj}/${slug.join('/')}/question.mdx`)
-    ),
-  };
-}
-
 interface SolutionProps {
   params: Params;
 }
 
 export default function Solution({ params }: SolutionProps) {
-  const { questionData, Question } = getQuestion(params);
-  const languages = getSolutionLanguages([params.oj, ...params.slug].join('/'));
+  const path = [params.oj, ...params.slug].join('/');
+  const { questionData, Question } = getQuestion(path);
+  const languages = getSolutionLanguages(path);
 
   return (
     <>
