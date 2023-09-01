@@ -33,7 +33,6 @@
     "gray-matter": "^4.0.3",
     "prettier": "^3.0.2",
     "rehype-katex": "^6.0.3",
-    "rehype-mathjax": "^4.0.3",
     "rehype-pretty-code": "^0.10.0",
     "remark-frontmatter": "^4.0.1",
     "remark-math": "^5.1.1",
