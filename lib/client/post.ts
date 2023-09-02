@@ -1,3 +1,4 @@
+import SolutionSkeleton from '@/components/solution-skeleton';
 import dynamic from 'next/dynamic';
 
 /**
@@ -7,5 +8,7 @@ import dynamic from 'next/dynamic';
  * @returns The solution.
  */
 export function getSolution(path: string, language: string) {
-  return dynamic(() => import(`@/posts/solutions/${path}/${language}.mdx`));
+  return dynamic(() => import(`@/posts/solutions/${path}/${language}.mdx`), {
+    loading: SolutionSkeleton,
+  });
 }

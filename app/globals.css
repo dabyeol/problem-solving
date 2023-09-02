@@ -1,3 +1,4 @@
+@import 'react-loading-skeleton/dist/skeleton.css';
 @import url(https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css);
 
 :root {
@@ -44,6 +45,11 @@
   }
 }
 
+.react-loading-skeleton {
+  --base-color: #eeeeee !important;
+  --highlight-color: #dddddd !important;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #111111;
@@ -62,6 +68,11 @@
     --warning-light: #664400;
     --info: #00aaff;
     --info-light: #004466;
+  }
+
+  .react-loading-skeleton {
+    --base-color: #333333 !important;
+    --highlight-color: #444444 !important;
   }
 }
 
