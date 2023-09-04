@@ -23,7 +23,7 @@ interface SolutionProps {
 }
 
 export default function Solution({ params }: SolutionProps) {
-  const path = [params.oj, ...params.slug].join('/');
+  const path = decodeURIComponent([params.oj, ...params.slug].join('/'));
   const { questionData, Question } = getQuestion(path);
   const languages = getSolutionLanguages(path);
 
@@ -36,7 +36,7 @@ export default function Solution({ params }: SolutionProps) {
             <Question />
           </QuestionLayout>
           <Suspense>
-            <SolutionLayout params={params} languages={languages} />
+            <SolutionLayout path={path} languages={languages} />
           </Suspense>
         </Wrapper>
       </Container>

@@ -1,0 +1,111 @@
+## 이론
+
+### 변수 선언하기
+
+```js {1}
+const readline;
+```
+
+변수는 값을 저장하는 공간이에요.
+변수를 선언하는 방법은 `const{:js}`와 `let{:js}`이 있어요.
+`const{:js}`는 상수를 선언할 때 사용해요.
+상수는 한 번 선언하면 값을 바꿀 수 없어요.
+`let{:js}`은 변수를 선언할 때 사용해요.
+변수는 선언한 후에도 값을 바꿀 수 있어요.
+
+### 모듈 불러오기
+
+```js {1}
+const readline = require('readline');
+```
+
+모듈은 파일 단위로 코드를 재사용할 수 있게 해 줘요.
+`require(){:js}` 함수를 통해 모듈을 불러올 수 있어요.
+
+`fs{:text}` 모듈은 파일 시스템과 상호작용할 수 있게 해 줘요.
+
+### 입력받기
+
+```js {2-5}
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+```
+
+입력을 받는 방법은 크게 `readline{:text}` 모듈과 `fs{:text}` 모듈을 사용하는 방법이 있어요.
+그 중 `readline{:text}` 모듈을 사용하는 방법을 알아볼게요.
+
+`readline{:text}` 모듈은 한 줄씩 입력을 받을 수 있어요.
+`readline.createInterface(){:js}` 함수를 통해 입력과 출력을 지정해 줄 수 있어요.
+여기에서는 `process.stdin{:js}`을 입력으로, `process.stdout{:js}`을 출력으로 지정해 줬어요.
+
+```js {9-13}
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let input = [];
+
+rl.on('line', function (line) {
+  input = [line];
+}).on('close', function () {
+  str = input[0];
+});
+```
+
+`readline{:text}` 모듈을 사용하면 입력을 받을 때마다 `line{:js}` 이벤트가 발생해요.
+`rl.on(){:js}` 함수를 통해 `line{:js}` 이벤트가 발생할 때마다 실행할 함수를 지정해 줄 수 있어요.
+여기에서는 입력을 받을 때마다 `input{:js}` 배열에 입력을 저장해 줬어요.
+
+`readline{:text}` 모듈은 특정 조건에서 `close{:js}` 이벤트를 발생시켜요.
+
+- `rl.close(){:js}` 함수를 호출한 경우
+- 입력을 받는 도중에 <kbd>Ctrl</kbd> + <kbd>C</kbd>, <kbd>Ctrl</kbd> + <kbd>D</kbd>를 누른 경우
+- 입력을 받는 도중에 `EOF{:text}`(End Of File)를 만난 경우
+
+`rl.on(){:js}` 함수를 통해 `close{:js}` 이벤트가 발생할 때마다 실행할 함수를 지정해 줄 수 있어요.
+여기에서는 `input{:js}` 배열에 저장된 입력을 `str{:js}` 변수에 저장해 줬어요.
+
+### 출력하기
+
+```js {13}
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let input = [];
+
+rl.on('line', function (line) {
+  input = [line];
+}).on('close', function () {
+  str = input[0];
+  console.log(str);
+});
+```
+
+`console.log(){:js}` 함수를 사용하여 콘솔에 출력할 수 있어요.
+
+## 코드
+
+```js
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let input = [];
+
+rl.on('line', function (line) {
+  input = [line];
+}).on('close', function () {
+  str = input[0];
+  console.log(str);
+});
+```

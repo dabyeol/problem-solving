@@ -19,19 +19,15 @@ const Language = styled(Image)<{ disabled?: boolean }>`
 `;
 
 interface QuestionProps {
-  params: {
-    oj: string;
-    slug: string[];
-  };
+  path: string;
   languages: string[];
 }
 
-export default function SolutionLayout({ params, languages }: QuestionProps) {
+export default function SolutionLayout({ path, languages }: QuestionProps) {
   const searchParams = useSearchParams();
   const currentLanguage = languages.find(
     language => language === searchParams.get('language')
   );
-  const path = [params.oj, ...params.slug].join('/');
   const Solution = currentLanguage ? getSolution(path, currentLanguage) : null;
 
   return (

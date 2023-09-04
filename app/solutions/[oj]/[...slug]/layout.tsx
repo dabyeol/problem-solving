@@ -8,7 +8,8 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const data = getQuestionData([params.oj, ...params.slug].join('/'));
+  const path = decodeURIComponent([params.oj, ...params.slug].join('/'));
+  const data = getQuestionData(path);
 
   return { title: `${data.title} (${data.subtitle})` };
 }

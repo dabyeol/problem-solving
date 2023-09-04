@@ -2,7 +2,7 @@
 
 import IconButton from '@/components/icon-button';
 import { Container, Grid, Section, Wrapper } from '@/lib/client/style';
-import { oj } from '@/lib/server/oj';
+import { ojList } from '@/lib/server/oj';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -54,7 +54,7 @@ export default function Home() {
           <Section>
             <h2>문제 풀이</h2>
             <Grid>
-              {oj.map(oj => (
+              {ojList.map(oj => (
                 <Link key={oj.id} href={`/solutions/${oj.id}`}>
                   <IconButton src={`/images/oj/${oj.id}.png`} text={oj.name} />
                 </Link>

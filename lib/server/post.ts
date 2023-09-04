@@ -26,8 +26,11 @@ export function getQuestions(oj: string) {
 
   return paths.map(path => {
     const slug = path.split('/').slice(3, -1);
+    const languages = getSolutionLanguages(
+      path.split('/').slice(2, -1).join('/')
+    );
 
-    return { ...getQuestionData([oj, ...slug].join('/')), slug };
+    return { ...getQuestionData([oj, ...slug].join('/')), slug, languages };
   });
 }
 

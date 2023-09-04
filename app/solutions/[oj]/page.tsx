@@ -1,11 +1,11 @@
 import Banner from '@/components/banner';
 import SolutionItem from '@/components/solution-item';
 import { Container, Section } from '@/lib/client/style';
-import { oj } from '@/lib/server/oj';
+import { ojList } from '@/lib/server/oj';
 import { getQuestions } from '@/lib/server/post';
 
 export async function generateStaticParams() {
-  return oj.map(({ id }) => ({ oj: id }));
+  return ojList.map(({ id }) => ({ oj: id }));
 }
 
 interface OJProps {
@@ -19,7 +19,7 @@ export default function OJ({ params }: OJProps) {
 
   return (
     <>
-      <Banner>{oj.find(oj => oj.id === params.oj)?.name}</Banner>
+      <Banner>{ojList.find(oj => oj.id === params.oj)?.name}</Banner>
 
       <Container>
         <Section>
@@ -29,7 +29,9 @@ export default function OJ({ params }: OJProps) {
               href={`/solutions/${params.oj}/${question.slug.join('/')}`}
               title={question.title}
               subtitle={question.subtitle}
+              oj={params.oj}
               level={question.level}
+              languages={question.languages}
             />
           ))}
         </Section>

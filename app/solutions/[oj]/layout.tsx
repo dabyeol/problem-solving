@@ -1,4 +1,4 @@
-import { oj } from '@/lib/server/oj';
+import { ojList } from '@/lib/server/oj';
 
 interface Props {
   params: {
@@ -7,7 +7,7 @@ interface Props {
 }
 
 export async function generateMetadata({ params }: Props) {
-  return { title: oj.find(oj => oj.id === params.oj)?.name };
+  return { title: ojList.find(oj => oj.id === params.oj)?.name };
 }
 
 export default function OJLayout({ children }: { children: React.ReactNode }) {

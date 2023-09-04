@@ -31,11 +31,13 @@ export default function QuestionLayout({ data, children }: QuestionProps) {
       <Wrapper>
         <Section>
           <Title>{data.title}</Title>
-          <Tags>
-            {data.tags.map(tag => (
-              <Button key={tag}>{tag}</Button>
-            ))}
-          </Tags>
+          {data.tags && (
+            <Tags>
+              {data.tags.map(tag => (
+                <Button key={tag}>{tag}</Button>
+              ))}
+            </Tags>
+          )}
         </Section>
       </Wrapper>
 
