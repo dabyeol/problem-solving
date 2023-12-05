@@ -1,0 +1,9 @@
+{
+  "name": "Problem Solving",
+  "short_name": "Problem Solving",
+  "description": "기본에 충실한 문제 풀이",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#fff"
+}
