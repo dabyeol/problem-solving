@@ -1,7 +1,7 @@
 'use client';
 
 import { getSolution } from '@/lib/client/post';
-import { Prose, Section, Wrapper } from '@/lib/client/style';
+import { Prose, Section } from '@/lib/client/style';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,8 +14,10 @@ const Languages = styled.div`
 `;
 
 const Language = styled(Image)<{ disabled?: boolean }>`
+  width: var(--text-2xl);
+  height: var(--text-2xl);
+  filter: ${({ disabled }) => disabled && 'contrast(50%) opacity(50%)'};
   border-radius: 100%;
-  ${({ disabled }) => disabled && 'filter: contrast(50%) opacity(50%);'}
 `;
 
 interface QuestionProps {
@@ -31,10 +33,10 @@ export default function SolutionLayout({ path, languages }: QuestionProps) {
   const Solution = currentLanguage ? getSolution(path, currentLanguage) : null;
 
   return (
-    <Wrapper>
-      <Section>
-        <h1>풀이</h1>
-        {languages.length > 0 ? (
+    <Section>
+      <h1>풀이</h1>
+      {languages.length ? (
+        <>
           <Languages>
             {languages.map(language => (
               <Link
@@ -54,14 +56,11 @@ export default function SolutionLayout({ path, languages }: QuestionProps) {
               </Link>
             ))}
           </Languages>
-        ) : (
-          <p>아직 풀이가 없어요.</p>
-        )}
-      </Section>
-
-      {languages.length > 0 && (
-        <Prose>{Solution ? <Solution /> : <p>언어를 선택해주세요.</p>}</Prose>
+          <Prose>{Solution ? <Solution /> : <p>언어를 선택해주세요.</p>}</Prose>
+        </>
+      ) : (
+        <p>아직 풀이가 없어요.</p>
       )}
-    </Wrapper>
+    </Section>
   );
 }

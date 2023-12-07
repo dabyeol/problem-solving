@@ -6,42 +6,52 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Wrapper = styled.div`
-  width: 100%;
+  box-sizing: content-box;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
   gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 8px;
+  margin: -8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--color-secondary);
+  }
 `;
 
 const Left = styled(Link)`
-  width: 100%;
   display: flex;
+  flex: 1;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
   gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
 `;
 
 const Level = styled.div<{ color: string }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 24px;
   height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 4px;
+  font-size: var(--text-xs);
+  font-weight: bold;
+  color: #fff;
   background-color: ${({ color }) => color};
-  font-size: 0.75rem; // 12px
-  font-weight: 700;
-  color: #ffffff;
+  border-radius: 4px;
 `;
 
 const Titlebar = styled.div`
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
-  justify-content: center;
+  gap: 4px;
   align-items: flex-start;
+  justify-content: center;
 `;
 
 const Title = styled.span`
@@ -50,8 +60,8 @@ const Title = styled.span`
 `;
 
 const Subtitle = styled.span`
-  font-size: 0.75rem; // 12px
-  color: var(--text-secondary);
+  font-size: var(--text-xs);
+  color: var(--color-description);
 `;
 
 const Languages = styled.div`

@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const Wrapper = styled(Link)<{ selected: boolean }>`
-  color: ${props => (props.selected ? '#333333' : '#999999')};
+  color: ${props =>
+    props.selected ? 'var(--color-text)' : 'var(--color-description)'};
 `;
 
 interface NavLinkProps {

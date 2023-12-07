@@ -5,51 +5,44 @@ const Wrapper = styled.button<{
   primary?: boolean;
   large?: boolean;
 }>`
-  width: ${props => (props.large ? '100%' : 'auto')};
-  height: ${props => (props.large ? '56px' : '40px')};
   display: flex;
-  justify-content: center;
   align-items: center;
-  box-shadow: ${props =>
-    props.primary
-      ? props.large
-        ? '0px 2px 8px 0px rgba(0, 0, 0, 0.25)'
-        : '0px 1px 4px 0px rgba(0, 0, 0, 0.25)'
-      : 'none'};
-  background-color: var(
-    ${props => (props.primary ? '--primary' : '--secondary')}
-  );
-  padding: 0px ${props => (props.large ? '48px' : '24px')};
-  border-radius: ${props => (props.large ? '16px' : '8px')};
-  color: var(${props => (props.primary ? '--text-primary' : '--text')});
+  justify-content: center;
+  width: ${({ large }) => (large ? '100%' : 'auto')};
+  height: ${({ large }) => (large ? '56px' : '40px')};
+  padding: 0 ${({ large }) => (large ? '48px' : '24px')};
+  color: ${({ primary }) =>
+    primary ? 'var(--color-text-alt)' : 'var(--color-text)'};
+  background-color: ${({ primary }) =>
+    primary ? 'var(--color-primary)' : 'var(--color-secondary)'};
   border: none;
-  cursor: pointer;
+  border-radius: ${({ large }) => (large ? '16px' : '8px')};
 
-  @media (max-width: 809px) {
-    height: ${props => (props.large ? '56px' : '36px')};
-    padding: 0px ${props => (props.large ? '32px' : '20px')};
+  @media (width < 810px) {
+    height: ${({ large }) => (large ? '56px' : '36px')};
+    padding: 0 ${({ large }) => (large ? '32px' : '20px')};
   }
 `;
 
 const Text = styled.span<{ primary?: boolean; large?: boolean }>`
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 8px;
+  align-items: center;
+  justify-content: center;
   font-weight: ${props => (props.primary ? '600' : '500')};
 
   & > svg {
-    width: 1rem; // 16px
-    height: 1rem; // 16px
+    width: 1rem; /* 16px */
+    height: 1rem; /* 16px */
   }
 
-  @media (max-width: 809px) {
+  @media (width < 810px) {
     gap: 6px;
-    font-size: ${props => (props.large ? '1rem' : '0.875rem')}; // 16px, 14px
+    font-size: ${props => (props.large ? '1rem' : '0.875rem')}; /* 16px 14px */
 
     & > svg {
-      width: 0.875rem; // 14px
-      height: 0.875rem; // 14px
+      width: 0.875rem; /* 14px */
+      height: 0.875rem; /* 14px */
     }
   }
 `;

@@ -1,78 +1,14 @@
-@import 'react-loading-skeleton/dist/skeleton.css';
-@import url(https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css);
-
-:root {
-  --background: #ffffff;
-  --background-light: #ffffff;
-  --paragraph: #333333;
-  --text: #111111;
-  --text-primary: #ffffff;
-  --text-secondary: #999999;
-  --primary: #111111;
-  --secondary: #eeeeee;
-  --success: #00cc88;
-  --success-light: #ccffee;
-  --danger: #ff3333;
-  --danger-light: #ffcccc;
-  --warning: #ffaa00;
-  --warning-light: #ffeecc;
-  --info: #00aaff;
-  --info-light: #cceeff;
-
-  --text-md: 1rem; /* 16px */
-  --text-lg: 1.25rem; /* 20px */
-  --text-xl: 1.5rem; /* 24px */
-  --text-2xl: 2rem; /* 32px */
-  --text-3xl: 2.5rem; /* 40px */
-  --text-4xl: 3rem; /* 48px */
-
-  @media (max-width: 1199px) {
-    --text-md: 1rem; /* 16px */
-    --text-lg: 1.125rem; /* 18px */
-    --text-xl: 1.25rem; /* 20px */
-    --text-2xl: 1.75rem; /* 28px */
-    --text-3xl: 2rem; /* 32px */
-    --text-4xl: 2.5rem; /* 40px */
-  }
-
-  @media (max-width: 809px) {
-    --text-md: 1rem; /* 16px */
-    --text-lg: 1.125rem; /* 18px */
-    --text-xl: 1.25rem; /* 20px */
-    --text-2xl: 1.5rem; /* 24px */
-    --text-3xl: 1.75rem; /* 28px */
-    --text-4xl: 2rem; /* 32px */
-  }
-}
+@import url('https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css');
 
 .react-loading-skeleton {
-  --base-color: #eeeeee !important;
-  --highlight-color: #dddddd !important;
+  --base-color: #eee !important;
+  --highlight-color: #ddd !important;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #111111;
-    --background-light: #222222;
-    --paragraph: #cccccc;
-    --text: #dddddd;
-    --text-primary: #111111;
-    --text-secondary: #999999;
-    --primary: #eeeeee;
-    --secondary: #333333;
-    --success: #00cc88;
-    --success-light: #006644;
-    --danger: #ff3333;
-    --danger-light: #660000;
-    --warning: #ffaa00;
-    --warning-light: #664400;
-    --info: #00aaff;
-    --info-light: #004466;
-  }
-
   .react-loading-skeleton {
-    --base-color: #333333 !important;
-    --highlight-color: #444444 !important;
+    --base-color: #333 !important;
+    --highlight-color: #444 !important;
   }
 }
 
@@ -90,145 +26,9 @@
   }
 }
 
-html,
-body {
-  background-color: var(--background);
-  padding: 0;
-  margin: 0;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Apple SD Gothic Neo,
-    Pretendard Variable,
-    Pretendard,
-    Roboto,
-    Noto Sans KR,
-    Segoe UI,
-    Malgun Gothic,
-    Apple Color Emoji,
-    Segoe UI Emoji,
-    Segoe UI Symbol,
-    sans-serif;
-  color: var(--text);
-  word-break: keep-all;
-  overflow-wrap: break-word;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a > strong {
-  text-decoration: underline wavy;
-  text-underline-offset: 1px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-img,
-svg {
-  display: block;
-}
-
-input,
-select,
-textarea,
-button {
-  color: inherit;
-  background-color: transparent;
-  font-size: inherit;
-}
-
-button,
-textarea {
-  font-family: inherit;
-}
-
-input::-webkit-date-and-time-value {
-  text-align: left;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: 1rem;
-  margin: 0;
-  line-height: 1.4;
-  letter-spacing: -0.025em;
-  font-weight: 600;
-}
-
-h1 {
-  font-size: var(--text-2xl);
-  /* margin-bottom: 1rem; */
-}
-
-h2 {
-  font-size: var(--text-xl);
-  margin-bottom: 1rem;
-
-  @media (max-width: 809px) {
-    margin-bottom: 0.75rem;
-  }
-}
-
-h3 {
-  font-size: var(--text-lg);
-  margin-bottom: 1rem;
-
-  @media (max-width: 809px) {
-    margin-bottom: 0.75rem;
-  }
-}
-
-h4 {
-  font-size: var(--text-md);
-}
-
-p,
-ul,
-ol {
-  color: var(--paragraph);
-  margin-top: -0.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 2;
-
-  @media (max-width: 809px) {
-    margin-top: -0.375rem;
-    margin-bottom: 1rem;
-    line-height: 1.8;
-  }
-}
-
-ul,
-ol {
-  padding-left: 2rem;
-}
-
-pre {
-  /* font-size: 0.875rem; 14px */
-  line-height: 1.6;
-  margin: 0;
-  padding: 16px 0px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-  background-color: var(--background-light);
-  overflow: auto;
-
-  @media (max-width: 809px) {
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-  }
-}
-
 pre > code {
   display: grid;
+  margin: 0 -16px;
 }
 
 [data-line] {
@@ -237,32 +37,6 @@ pre > code {
 }
 
 [data-highlighted-line] {
-  background-color: var(--secondary);
-  border-left: var(--text) 4px solid;
-}
-
-[data-rehype-pretty-code-fragment] {
-  margin-bottom: 2rem; /* 32px */
-
-  @media (max-width: 809px) {
-    margin-bottom: 1.5rem; /* 24px */
-  }
-}
-
-code:not(:where(pre *)) {
-  background-color: var(--secondary);
-  padding: 0.125rem 0.25rem;
-  border-radius: 4px;
-}
-
-kbd {
-  background-color: var(--background-light);
-  font-size: 0.625rem; /* 10px */
-  font-family: inherit;
-  font-weight: 500;
-  padding: 0.125rem 0.25rem;
-  border: 1.5px solid var(--secondary);
-  border-radius: 6px;
-  border-bottom: 3px solid var(--secondary);
-  vertical-align: text-top;
+  background-color: var(--color-secondary);
+  border-color: var(--color-text);
 }

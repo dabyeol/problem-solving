@@ -1,3 +1,5 @@
+'use client';
+
 import SolutionSkeleton from '@/components/solution-skeleton';
 import dynamic from 'next/dynamic';
 

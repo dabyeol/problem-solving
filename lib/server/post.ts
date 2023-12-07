@@ -1,7 +1,7 @@
 import { sync } from 'glob';
 import matter from 'gray-matter';
 import dynamic from 'next/dynamic';
-import { QuestionData } from '../client/interface';
+import { QuestionData } from '../interface';
 
 /**
  * Get all solutions.

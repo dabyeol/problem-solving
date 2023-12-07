@@ -1,5 +1,6 @@
 import Banner from '@/components/banner';
-import { Container, Wrapper } from '@/lib/client/style';
+import ProseLayout from '@/components/prose-layout';
+import { Container } from '@/lib/client/style';
 import {
   getAllSolutions,
   getQuestion,
@@ -29,16 +30,16 @@ export default function Solution({ params }: SolutionProps) {
 
   return (
     <>
-      <Banner>{questionData.subtitle}</Banner>
+      <Banner small>{questionData.subtitle}</Banner>
       <Container>
-        <Wrapper loose column={8}>
+        <ProseLayout>
           <QuestionLayout data={questionData}>
             <Question />
           </QuestionLayout>
           <Suspense>
             <SolutionLayout path={path} languages={languages} />
           </Suspense>
-        </Wrapper>
+        </ProseLayout>
       </Container>
     </>
   );

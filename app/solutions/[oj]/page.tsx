@@ -1,6 +1,6 @@
 import Banner from '@/components/banner';
 import SolutionItem from '@/components/solution-item';
-import { Container, Section } from '@/lib/client/style';
+import { Container, List } from '@/lib/client/style';
 import { ojList } from '@/lib/server/oj';
 import { getQuestions } from '@/lib/server/post';
 
@@ -19,10 +19,10 @@ export default function OJ({ params }: OJProps) {
 
   return (
     <>
-      <Banner>{ojList.find(oj => oj.id === params.oj)?.name}</Banner>
+      <Banner small>{ojList.find(oj => oj.id === params.oj)?.name}</Banner>
 
       <Container>
-        <Section>
+        <List>
           {questions.map((question, index) => (
             <SolutionItem
               key={index}
@@ -34,7 +34,7 @@ export default function OJ({ params }: OJProps) {
               languages={question.languages}
             />
           ))}
-        </Section>
+        </List>
       </Container>
     </>
   );

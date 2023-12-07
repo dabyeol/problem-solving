@@ -1,51 +1,71 @@
 'use client';
 
-import { Caption } from '@/lib/client/style';
+import { Container } from '@/lib/client/style';
 import styled from '@emotion/styled';
+import Link from 'next/link';
 
 const Wrapper = styled.footer`
-  width: 100%;
-  height: 96px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
-  padding: 24px;
-  background-color: var(--secondary);
+  justify-content: center;
+  width: 100%;
+  padding-bottom: env(safe-area-inset-bottom);
+  color: #eee;
+  background-color: #222;
+`;
 
-  @media (max-width: 1199px) {
-    padding: 0;
-  }
+const Links = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  font-weight: bold;
 
-  @media (max-width: 809px) {
-    height: 80px;
+  @media (width < 810px) {
+    justify-content: center;
   }
 `;
 
-const Text = styled(Caption)`
-  width: 1176px;
+const Text = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 24px;
-  gap: 24px;
-  color: var(--text-secondary);
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 
-  @media (max-width: 1199px) {
-    width: 100%;
+  @media (width < 810px) {
+    flex-direction: column-reverse;
   }
+`;
 
-  @media (max-width: 809px) {
-    padding: 16px;
-    gap: 16px;
-  }
+const Logo = styled.div`
+  font-family: var(--font-monospace);
+  font-size: var(--text-sm);
+  font-weight: bold;
+`;
+
+const Copyright = styled.div`
+  font-size: var(--text-sm);
+  color: var(--color-description);
 `;
 
 export default function Footer() {
   return (
     <Wrapper>
-      <Text>© 2023 Dabyeol. All rights reserved.</Text>
+      <Container>
+        <Links>
+          <Link href="/">Home</Link>
+          <Link href="/about">About</Link>
+        </Links>
+        <Text>
+          <Copyright>© 2023 Dabyeol. All rights reserved.</Copyright>
+          <Logo>Problem Solving</Logo>
+        </Text>
+      </Container>
     </Wrapper>
   );
 }
