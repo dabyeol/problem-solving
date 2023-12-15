@@ -20,6 +20,7 @@ const options = {
     light: 'github-light',
   },
   keepBackground: false,
+  defaultLang: 'plaintext',
 };
 
 const withMDX = createMDX({

@@ -10,7 +10,6 @@ const Wrapper = styled.footer`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding-bottom: env(safe-area-inset-bottom);
   color: #eee;
   background-color: #222;
 `;
