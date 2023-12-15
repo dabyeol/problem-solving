@@ -1,0 +1,67 @@
+## 이론
+
+### 입력받기
+
+```js {9-13}
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let input = [];
+
+rl.on('line', function (line) {
+  input = line.split(' ');
+}).on('close', function () {
+  str = input[0];
+  n = Number(input[1]);
+});
+```
+
+`split(){:js}` 함수를 사용하여 공백을 기준으로 문자열을 나눠 배열에 저장할 수 있어요.
+따라서 예를 기준으로 `input`에는 `['string', '5']`가 저장되어 있어요.
+`Number(){:js}` 함수를 사용하여 문자열을 숫자로 바꿀 수 있어요.
+`str`에는 `'string'`이 저장되어 있고, `n`에는 `5`가 저장되어 있어요.
+
+### 출력하기
+
+```js {14}
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let input = [];
+
+rl.on('line', function (line) {
+  input = line.split(' ');
+}).on('close', function () {
+  str = input[0];
+  n = Number(input[1]);
+  console.log(str.repeat(n));
+});
+```
+
+반복문을 사용하지 않고도 `repeat(){:js}` 함수를 사용하여 문자열을 `n`번 반복할 수 있어요.
+
+## 코드
+
+```js
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let input = [];
+
+rl.on('line', function (line) {
+  input = line.split(' ');
+}).on('close', function () {
+  str = input[0];
+  n = Number(input[1]);
+  console.log(str.repeat(n));
+});
+```
