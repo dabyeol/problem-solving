@@ -82,7 +82,11 @@ export const Prose = styled.article`
     padding-left: 2rem;
   }
 
-  a strong {
+  a {
+    text-decoration: underline;
+  }
+
+  a:has(strong) {
     text-decoration: underline wavy;
     text-underline-offset: 1px;
   }
