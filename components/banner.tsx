@@ -1,7 +1,6 @@
 'use client';
 
 import { Container } from '@/lib/client/style';
-import { getUnsplashUrl } from '@/lib/utils';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 
@@ -48,12 +47,7 @@ interface BannerProps {
 export default function Banner({ children, small }: BannerProps) {
   return (
     <Wrapper small={small}>
-      <Backdrop
-        src={getUnsplashUrl('XUlsF9LYeVk')}
-        alt="Backdrop"
-        priority
-        fill
-      />
+      <Backdrop src="/images/banner.jpg" alt="Backdrop" priority fill />
       <OverlayContainer>
         <Text small={small}>{children}</Text>
       </OverlayContainer>
