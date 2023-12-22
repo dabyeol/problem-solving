@@ -82,6 +82,12 @@ export const Prose = styled.article`
     padding-left: 2rem;
   }
 
+  li ul,
+  li ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   a {
     text-decoration: underline;
   }
@@ -97,5 +103,25 @@ export const Prose = styled.article`
 
   & > :last-child {
     margin-bottom: 0 !important;
+  }
+
+  table {
+    display: block;
+    margin-bottom: 2rem; /* 32px */
+    overflow-x: auto;
+  }
+
+  thead {
+    background-color: var(--color-secondary);
+  }
+
+  th,
+  td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+
+  td {
+    border-bottom: 2px solid var(--color-secondary);
   }
 `;
