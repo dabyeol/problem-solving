@@ -22,7 +22,12 @@ export function getAllSolutions() {
  * @returns The questions.
  */
 export function getQuestions(oj: string) {
-  const paths = sync(`posts/solutions/${oj}/**/question.mdx`).sort();
+  const paths = sync(`posts/solutions/${oj}/**/question.mdx`).sort((a, b) => {
+    const numA = Number(a.split('/').slice(3, -1).join('/'));
+    const numB = Number(b.split('/').slice(3, -1).join('/'));
+
+    return numA - numB;
+  });
 
   return paths.map(path => {
     const slug = path.split('/').slice(3, -1);
