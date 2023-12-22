@@ -11,5 +11,5 @@ rl.on('line', function (line) {
 }).on('close', function () {
   str = input[0];
 
-  console.log(str);
+  [...str].forEach(char => console.log(char));
 });

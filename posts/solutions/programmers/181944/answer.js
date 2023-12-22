@@ -7,9 +7,9 @@ const rl = readline.createInterface({
 let input = [];
 
 rl.on('line', function (line) {
-  input = [line];
+  input = line.split(' ');
 }).on('close', function () {
-  str = input[0];
+  n = Number(input[0]);
 
-  console.log(str);
+  console.log(`${n} is ${n % 2 === 0 ? 'even' : 'odd'}`);
 });

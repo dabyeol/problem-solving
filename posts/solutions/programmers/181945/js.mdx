@@ -1,0 +1,43 @@
+## 이론
+
+### 전개 구문 (Spread Syntax)
+
+전개 구문 `...`을 사용해서 배열이나 문자열을 개별 요소로 분리할 수 있어요.
+배열에 있는 요소를 배열 밖으로 꺼내어 사용할 때 유용하게 사용할 수 있어요.
+
+```js
+const str = 'hello';
+console.log([...str]); // ['h', 'e', 'l', 'l', 'o']
+```
+
+### 반복문
+
+반복문은 특정한 작업을 반복적으로 수행할 때 사용해요.
+그 중 `forEach(){:js}`는 배열의 각 요소에 대해 한 번씩 제공한 함수를 실행해요.
+
+```js
+const arr = [1, 2, 3, 4, 5];
+arr.forEach(num => {
+  console.log(num);
+});
+```
+
+## 코드
+
+```js
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+let input = [];
+
+rl.on('line', function (line) {
+  input = [line];
+}).on('close', function () {
+  str = input[0];
+
+  [...str].forEach(char => console.log(char));
+});
+```

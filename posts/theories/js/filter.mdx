@@ -1,0 +1,28 @@
+### [Array.prototype.filter()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/Filter)
+
+`filter(){:js}` 메서드는 주어진 함수의 테스트를 통과하는 모든 요소를 모아 새로운 배열로 반환해요.
+
+```js
+filter(callbackFn[, thisArg])
+```
+
+`callbackFn` 함수는 세 가지 인자를 받아요.
+
+- `element`: 배열에서 처리되고 있는 현재 요소
+- `index`: 배열에서 처리되고 있는 현재 요소의 인덱스
+- `array`: `filter`를 호출한 배열
+
+```js
+const words = [
+  'spray',
+  'limit',
+  'elite',
+  'exuberant',
+  'destruction',
+  'present',
+];
+const result = words.filter(word => word.length > 6);
+
+console.log(result);
+// Expected output: Array ["exuberant", "destruction", "present"]
+```

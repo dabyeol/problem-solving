@@ -1,0 +1,16 @@
+import Filter from '@/posts/theories/js/filter.mdx';
+
+## 이론
+
+<Filter />
+
+## 코드
+
+```js
+function solution(num_list) {
+  const a = Number(num_list.filter(num => num % 2).join(''));
+  const b = Number(num_list.filter(num => !(num % 2)).join(''));
+
+  return a + b;
+}
+```

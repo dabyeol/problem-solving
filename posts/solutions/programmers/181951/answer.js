@@ -7,9 +7,11 @@ const rl = readline.createInterface({
 let input = [];
 
 rl.on('line', function (line) {
-  input = [line];
+  input = line.split(' ');
 }).on('close', function () {
-  str = input[0];
+  const a = input[0];
+  const b = input[1];
 
-  console.log(str);
+  console.log(`a = ${a}`);
+  console.log(`b = ${b}`);
 });

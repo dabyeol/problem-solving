@@ -1,0 +1,36 @@
+## 이론
+
+[**사칙연산 (10869)**](10869?language=js)를 먼저 풀어보세요!
+
+### 입력받기
+
+한 줄에 하나씩 입력받는 방법에 대해 알아봐요.
+
+```js {2-3}
+const fs = require('fs');
+const input = fs.readFileSync('/dev/stdin').toString().split('\n');
+const [one, two] = input.map(Number);
+```
+
+`split(){:js}` 함수를 사용하여 줄바꿈 문자를 기준으로 문자열을 나누어 배열로 만들면 돼요.
+
+### 숫자의 각 자리수 구하기
+
+숫자의 각 자리수를 구하는 방법에 대해 알아봐요.
+
+- 일의 자리: `num % 10{:js}`
+- 십의 자리: `Math.floor(num / 10) % 10{:js}`
+- 백의 자리: `Math.floor(num / 100) % 10{:js}`
+
+## 코드
+
+```js
+const fs = require('fs');
+const input = fs.readFileSync('/dev/stdin').toString().split('\n');
+const [one, two] = input.map(Number);
+
+console.log(one * (two % 10));
+console.log(one * (Math.floor(two / 10) % 10));
+console.log(one * (Math.floor(two / 100) % 10));
+console.log(one * two);
+```

@@ -1,0 +1,32 @@
+import Reduce from '@/posts/theories/js/reduce.mdx';
+
+## 이론
+
+<Reduce />
+
+## 코드
+
+```js
+function solution(code) {
+  let mode = 0;
+  const ret = [...code].reduce((acc, cur, i) => {
+    if (mode === 0) {
+      if (cur !== '1') {
+        return i % 2 ? acc : acc + cur;
+      } else {
+        mode = 1;
+        return acc;
+      }
+    } else {
+      if (cur !== '1') {
+        return i % 2 ? acc + cur : acc;
+      } else {
+        mode = 0;
+        return acc;
+      }
+    }
+  }, '');
+
+  return ret.length === 0 ? 'EMPTY' : ret;
+}
+```

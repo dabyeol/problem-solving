@@ -1,0 +1,28 @@
+## 이론
+
+### 문자열 자르기 `slice(beginIndex[, endIndex]){:js}`
+
+- `beginIndex`부터 `endIndex` 전까지 문자열을 잘라요.
+- `endIndex`를 생략하면 `beginIndex`부터 문자열 끝까지 잘라요.
+- 음수를 넣으면 뒤에서부터 세요.
+
+```js
+var my_string = 'hello world';
+console.log(my_string.slice(0, 5)); // hello
+console.log(my_string.slice(6)); // world
+console.log(my_string.slice(-5)); // world
+```
+
+[MDN](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/slice)
+
+## 코드
+
+```js
+function solution(my_string, overwrite_string, s) {
+  var answer = my_string.slice(0, s);
+  answer += overwrite_string;
+  answer += my_string.slice(s + overwrite_string.length);
+
+  return answer;
+}
+```

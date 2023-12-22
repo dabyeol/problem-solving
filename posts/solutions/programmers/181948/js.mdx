@@ -1,0 +1,22 @@
+## 이론
+
+### 특수문자 출력하기
+
+- 일부 특수문자를 출력할 때는 역슬래시(`\`)를 앞에 붙여요.
+- 예를 들어, 역슬래시를 출력할 때는 역슬래시를 두 번(`\\`) 붙여요.
+- 큰따옴표 안에 작은따옴표를 출력할 수 있고, 작은따옴표 안에 큰따옴표를 출력할 수 있어요. (`"'"`, `'"'`)
+- 같은 따옴표 안에 같은 따옴표를 출력하려면, 역슬래시를 앞에 붙어요.
+
+## 코드
+
+```js
+const readline = require('readline');
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.on('close', function () {
+  console.log('!@#$%^&*(\\\'"<>?:;');
+});
+```

@@ -46,7 +46,7 @@ a와 b에 각각 `input[0]`과 `input[1]`을 저장해두어요.
 
 ### 출력하기
 
-```js {14-15}
+```js {15-16}
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -60,6 +60,7 @@ rl.on('line', function (line) {
 }).on('close', function () {
   const a = input[0];
   const b = input[1];
+
   console.log(`a = ${a}`);
   console.log(`b = ${b}`);
 });
@@ -93,6 +94,7 @@ rl.on('line', function (line) {
 }).on('close', function () {
   const a = input[0];
   const b = input[1];
+
   console.log(`a = ${a}`);
   console.log(`b = ${b}`);
 });

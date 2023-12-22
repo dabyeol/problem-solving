@@ -72,7 +72,7 @@ rl.on('line', function (line) {
 
 ### 출력하기
 
-```js {13}
+```js {14}
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -85,6 +85,7 @@ rl.on('line', function (line) {
   input = [line];
 }).on('close', function () {
   str = input[0];
+
   console.log(str);
 });
 ```
@@ -106,6 +107,7 @@ rl.on('line', function (line) {
   input = [line];
 }).on('close', function () {
   str = input[0];
+
   console.log(str);
 });
 ```
