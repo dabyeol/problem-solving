@@ -1,0 +1,47 @@
+## 이론
+
+### Switch 문
+
+```js
+switch (key) {
+  case value:
+    // code
+    break;
+  case value:
+    // code
+    break;
+  default:
+    // code
+    break;
+}
+```
+
+- key와 value가 일치하면 해당 case의 code를 실행해요.
+- break를 만나면 switch문을 빠져나와요.
+- default는 일치하는 case가 없을 때 실행되는 코드예요.
+
+## 코드
+
+```js
+function solution(n, control) {
+  var answer = n;
+  [...control].forEach(char => {
+    switch (char) {
+      case 'w':
+        answer++;
+        break;
+      case 's':
+        answer--;
+        break;
+      case 'd':
+        answer += 10;
+        break;
+      case 'a':
+        answer -= 10;
+        break;
+    }
+  });
+
+  return answer;
+}
+```

@@ -1,0 +1,21 @@
+import Filter from '@/posts/theories/js/array/filter.mdx';
+import Slice from '@/posts/theories/js/array/slice.mdx';
+import Min from '@/posts/theories/js/math/min.mdx';
+
+## 이론
+
+<Slice />
+<Filter />
+<Min />
+
+## 코드
+
+```js
+function solution(arr, queries) {
+  return queries.map(([s, e, k]) => {
+    const filtered = arr.slice(s, e + 1).filter(v => v > k);
+
+    return filtered.length ? Math.min(...filtered) : -1;
+  });
+}
+```
