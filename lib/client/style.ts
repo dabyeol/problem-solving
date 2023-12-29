@@ -109,6 +109,7 @@ export const Prose = styled.article`
     display: block;
     margin-bottom: 2rem; /* 32px */
     overflow-x: auto;
+    line-height: 1;
   }
 
   thead {
