@@ -1,0 +1,26 @@
+### [Array.prototype.splice()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/Splice)
+
+`splice(){:js}` 메서드는 배열의 기존 요소를 삭제 또는 교체하거나 새 요소를 추가하여 배열의 내용을 변경해요.
+
+```js
+array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
+```
+
+- `start` : 배열의 변경을 시작할 인덱스에요. 만약 음수라면 배열의 끝에서부터 요소를 세어요. (예를 들어, -1은 마지막 요소를 나타내요.)
+- `deleteCount` : 배열에서 제거를 할 요소의 수에요. 만약 `deleteCount`가 0이면, 어떤 요소도 제거되지 않아요. 이 경우에는 최소한 하나의 새로운 요소를 지정해야 해요.
+- `item1, item2, ...` : 배열에 추가될 요소에요. 아무 요소도 지정하지 않으면 `splice()`는 요소를 제거하기만 해요.
+
+`splice(){:js}`는 제거한 요소를 담은 배열을 반환해요. 아무 값도 제거하지 않았으면 빈 배열을 반환해요.
+
+```js
+const months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');
+// Inserts at index 1
+console.log(months);
+// Expected output: Array ["Jan", "Feb", "March", "April", "June"]
+
+months.splice(4, 1, 'May');
+// Replaces 1 element at index 4
+console.log(months);
+// Expected output: Array ["Jan", "Feb", "March", "April", "May"]
+```

@@ -1,0 +1,41 @@
+## 이론
+
+### while 문
+
+while 문은 조건식이 참인 동안 코드를 계속해서 반복 실행해요.
+
+```js
+while (조건식) {
+  // 조건식이 참일 경우 반복 실행될 코드
+}
+```
+
+중간에 break 문을 사용하면 반복문을 빠져나올 수 있어요.
+
+```js
+while (true) {
+  // 무한 반복
+  if (조건식) {
+    break;
+  }
+}
+```
+
+## 코드
+
+```js
+function solution(n) {
+  var answer = [n];
+  let x = n;
+  while (x !== 1) {
+    if (x % 2) {
+      x = 3 * x + 1;
+    } else {
+      x /= 2;
+    }
+    answer.push(x);
+  }
+
+  return answer;
+}
+```
