@@ -28,12 +28,12 @@
 
 pre > code {
   display: grid;
-  margin: 0 -16px;
+  margin: 0 -1.25rem;
 }
 
 [data-line] {
-  padding: 0 12px;
-  border-left: transparent 4px solid;
+  padding: 0 1.25rem 0 1rem;
+  border-left: transparent 0.25rem solid;
 }
 
 [data-highlighted-line] {

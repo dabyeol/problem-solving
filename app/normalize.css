@@ -167,7 +167,7 @@ kbd {
 }
 
 pre {
-  padding: 16px;
+  padding: 1rem 1.25rem;
   overflow: auto;
   line-height: 1.6;
   background-color: var(--color-float);
@@ -280,6 +280,12 @@ figure,
 p,
 pre {
   margin: 0;
+}
+
+blockquote {
+  padding: 1.25rem;
+  background-color: var(--color-info-bg);
+  border-radius: 8px;
 }
 
 fieldset {

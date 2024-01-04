@@ -57,24 +57,31 @@ export const Prose = styled.article`
   width: 100%;
 
   h1 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem; /* 24px */
   }
 
   h2 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem; /* 24px */
   }
 
   h3 {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.25rem; /* 20px */
   }
 
   p,
   ul,
   ol {
-    margin-top: -0.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: -0.5rem; /* 8px */
+    margin-bottom: 2rem; /* 32px */
     line-height: 2;
     color: var(--color-paragraph);
+
+    ::after {
+      display: block;
+      margin-top: -0.5rem; /* 8px */
+      font-size: 0;
+      content: '-';
+    }
   }
 
   ul,
@@ -86,6 +93,20 @@ export const Prose = styled.article`
   li ol {
     margin-top: 0;
     margin-bottom: 0;
+
+    ::after {
+      display: none;
+    }
+  }
+
+  li > :first-child {
+    margin-top: 0;
+  }
+
+  li > :last-child {
+    ::after {
+      display: none;
+    }
   }
 
   a {
@@ -97,11 +118,14 @@ export const Prose = styled.article`
     text-underline-offset: 1px;
   }
 
-  [data-rehype-pretty-code-fragment] {
+  [data-rehype-pretty-code-fragment],
+  blockquote {
     margin-bottom: 2rem; /* 32px */
   }
 
-  & > :last-child {
+  & > :last-child,
+  li > :last-child,
+  blockquote > :last-child {
     margin-bottom: 0 !important;
   }
 
