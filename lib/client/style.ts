@@ -134,6 +134,7 @@ export const Prose = styled.article`
     margin-bottom: 2rem; /* 32px */
     overflow-x: auto;
     line-height: 1;
+    white-space: nowrap;
   }
 
   thead {
