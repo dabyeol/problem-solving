@@ -1,5 +1,5 @@
 1:HL["/_next/static/css/3cc75fa2c1670998.css","style",{"crossOrigin":""}]
-0:["8jLkcZh8cJgz827DLZ_zf",[[["",{"children":["about",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/3cc75fa2c1670998.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
+0:["DMojBD3ekL7eRaN6AOpH6",[[["",{"children":["about",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/3cc75fa2c1670998.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
 4:I[909,["2288","static/chunks/2288-abf66778ef087555.js","1396","static/chunks/1396-614aae0e7f945d8c.js","3185","static/chunks/app/layout-886a436a42fe9b84.js"],""]
 5:I[6954,[],""]
 6:I[7264,[],""]
