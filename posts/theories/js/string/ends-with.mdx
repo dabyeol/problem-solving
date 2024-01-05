@@ -1,0 +1,18 @@
+### [String.prototype.endsWith()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
+
+`endsWith(){:js}` 메서드를 사용하여 어떤 문자열에서 특정 문자열로 끝나는지를 확인할 수 있으며, 그 결과를 `true` 혹은 `false`로 반환해요.
+
+```js
+str.endsWith(searchString[, length])
+```
+
+- `searchString` : 찾고자 하는 문자열
+- `length` : 검색할 문자열의 길이
+
+```js
+var str = 'To be, or not to be, that is the question.';
+
+console.log(str.endsWith('question.')); // true
+console.log(str.endsWith('to be')); // false
+console.log(str.endsWith('to be', 19)); // true
+```

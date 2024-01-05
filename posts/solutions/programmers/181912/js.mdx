@@ -1,0 +1,19 @@
+import Reduce from '@/posts/theories/js/array/reduce.mdx';
+import Slice from '@/posts/theories/js/array/slice.mdx';
+
+## 이론
+
+<Reduce />
+<Slice />
+
+## 코드
+
+```js
+function solution(intStrs, k, s, l) {
+  return intStrs.reduce((acc, cur) => {
+    const n = Number(cur.slice(s, s + l));
+
+    return n > k ? [...acc, n] : acc;
+  }, []);
+}
+```
