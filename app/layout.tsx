@@ -1,5 +1,6 @@
 import Layout from '@/components/layout';
 import type { Metadata, Viewport } from 'next';
+import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
 import 'react-loading-skeleton/dist/skeleton.css';
 import './globals.css';
 import './normalize.css';
@@ -33,14 +34,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <head>
-        <link
-          rel="stylesheet"
-          as="style"
-          crossOrigin="anonymous"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
-        />
-      </head>
       <body>
         <Layout>{children}</Layout>
       </body>
