@@ -1,0 +1,24 @@
+### [Array.prototype.indexOf()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf)
+
+`indexOf(){:js}` 메서드는 배열에서 주어진 요소를 찾을 수 있는 첫 번째 인덱스를 반환하고, 찾을 수 없는 경우 -1을 반환해요.
+
+```js
+indexOf(searchElement[, fromIndex])
+```
+
+- `searchElement` : 배열에서 찾을 요소
+- `fromIndex` : 검색을 시작할 인덱스. 음수인 경우 배열의 끝에서부터 요소를 찾아요. 기본값은 0이에요.
+
+```js
+const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+
+console.log(beasts.indexOf('bison'));
+// Expected output: 1
+
+// Start from index 2
+console.log(beasts.indexOf('bison', 2));
+// Expected output: 4
+
+console.log(beasts.indexOf('giraffe'));
+// Expected output: -1
+```

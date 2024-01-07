@@ -1,0 +1,20 @@
+import Reduce from '@/posts/theories/js/array/reduce.mdx';
+import Includes from '@/posts/theories/js/array/includes.mdx';
+
+문자열을 순회하면서 `indices`에 포함된 문자를 제외하며 새로운 문자열을 만들어요.
+
+## 이론
+
+<Reduce />
+<Includes />
+
+## 코드
+
+```js
+function solution(my_string, indices) {
+  return [...my_string].reduce(
+    (acc, cur, idx) => (indices.includes(idx) ? acc : acc + cur),
+    ''
+  );
+}
+```

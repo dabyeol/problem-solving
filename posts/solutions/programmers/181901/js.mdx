@@ -1,0 +1,11 @@
+## 이론
+
+먼저 길이가 `n / k{:js}`인 배열을 만들어요. 그리고 `map(){:js}` 메소드를 이용해서 배열의 각 요소를 `k`의 배수로 만들어요.
+
+## 코드
+
+```js
+function solution(n, k) {
+  return [...Array(Math.floor(n / k))].map((_, i) => k * (i + 1));
+}
+```
