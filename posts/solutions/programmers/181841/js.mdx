@@ -1,0 +1,13 @@
+import Filter from '@/posts/theories/js/array/filter.mdx';
+
+## 이론
+
+<Filter />
+
+## 코드
+
+```js
+function solution(str_list, ex) {
+  return str_list.filter(str => !str.includes(ex)).join('');
+}
+```

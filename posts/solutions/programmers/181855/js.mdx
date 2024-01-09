@@ -1,0 +1,40 @@
+## 이론
+
+### Map
+
+`Map` 객체는 키-값 쌍을 저장하는 자료구조예요. 키는 중복될 수 없고, 값은 중복될 수 있어요. 키를 통해 값을 조회할 수 있어요. 키는 넣은 순서대로 저장하기 때문에, `Map` 객체를 순회할 때에도 넣은 순서대로 순회할 수 있어요.
+
+```js
+const map1 = new Map();
+
+map1.set('a', 1);
+map1.set('b', 2);
+map1.set('c', 3);
+
+console.log(map1.get('a'));
+// Expected output: 1
+
+map1.set('a', 97);
+
+console.log(map1.get('a'));
+// Expected output: 97
+
+console.log(map1.size);
+// Expected output: 3
+
+map1.delete('b');
+
+console.log(map1.size);
+// Expected output: 2
+```
+
+## 코드
+
+```js
+function solution(strArr) {
+  const map = new Map();
+  strArr.forEach(str => map.set(str.length, (map.get(str.length) ?? 0) + 1));
+
+  return Math.max(...map.values());
+}
+```

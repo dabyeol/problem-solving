@@ -1,0 +1,26 @@
+### [String.prototype.split()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/split)
+
+`split(){:js}` 메서드는 `String` 객체를 지정한 구분자를 이용하여 여러 개의 문자열로 나눠요.
+
+```js
+split([separator[, limit]])
+```
+
+- `separator` : 입력된 문자열을 기준으로 나눌 구분자를 지정해요. 정규식도 사용할 수 있어요.
+- `limit` : 반환할 문자열의 개수를 지정해요. 생략하면 배열의 길이는 제한이 없어요.
+
+```js
+const str = 'The quick brown fox jumps over the lazy dog.';
+
+const words = str.split(' ');
+console.log(words[3]);
+// Expected output: "fox"
+
+const chars = str.split('');
+console.log(chars[8]);
+// Expected output: "k"
+
+const strCopy = str.split();
+console.log(strCopy);
+// Expected output: Array ["The quick brown fox jumps over the lazy dog."]
+```

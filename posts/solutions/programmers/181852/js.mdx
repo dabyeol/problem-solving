@@ -1,0 +1,20 @@
+## 이론
+
+### 정렬
+
+`sort(){:js}` 메서드는 사전 순으로 정렬해요. 숫자를 정렬할 때는 비교 함수를 넣어줘야 해요.
+
+```js
+const num_list = [5, 10, 15, 20, 25];
+
+console.log(num_list.sort()); // [10, 15, 20, 25, 5]
+console.log(num_list.sort((a, b) => a - b)); // [5, 10, 15, 20, 25]
+```
+
+## 코드
+
+```js
+function solution(num_list) {
+  return num_list.sort((a, b) => a - b).slice(5);
+}
+```

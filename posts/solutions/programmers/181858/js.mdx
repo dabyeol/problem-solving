@@ -1,0 +1,33 @@
+import Slice from '@/posts/theories/js/array/slice.mdx';
+
+## 이론
+
+### Set
+
+`Set` 객체는 중복되지 않는 값들을 저장하는 자료구조예요. 또한 값들을 넣은 순서대로 저장하기 때문에, `Set` 객체를 순회할 때에도 넣은 순서대로 순회할 수 있어요.
+
+```js
+const set = new Set();
+set.add(1);
+set.add(2);
+set.add(3);
+set.add(1);
+set.add(2);
+set.add(3);
+console.log(set); // Set(3) { 1, 2, 3 }
+```
+
+<Slice />
+
+## 코드
+
+```js
+function solution(arr, k) {
+  const set = new Set(arr);
+  if (set.size < k) {
+    return [...set, ...Array(k - set.size).fill(-1)];
+  } else {
+    return [...set].slice(0, k);
+  }
+}
+```

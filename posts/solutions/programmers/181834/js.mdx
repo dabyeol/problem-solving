@@ -1,0 +1,16 @@
+## 이론
+
+### 정규표현식
+
+- `[]` : 대괄호 안에 있는 문자들 중 하나
+- `a-k` : a부터 k까지
+
+따라서 `[a-k]`는 a부터 k까지의 문자 중 하나를 의미해요.
+
+## 코드
+
+```js
+function solution(myString) {
+  return myString.replace(/[a-k]/g, 'l');
+}
+```

@@ -1,0 +1,21 @@
+import Reduce from '@/posts/theories/js/array/reduce.mdx';
+import Slice from '@/posts/theories/js/array/slice.mdx';
+
+## 이론
+
+<Reduce />
+<Slice />
+
+## 코드
+
+```js
+function solution(arr, flag) {
+  return arr.reduce((acc, cur, i) => {
+    if (flag[i]) {
+      return [...acc, ...Array(cur * 2).fill(cur)];
+    } else {
+      return acc.slice(0, -cur);
+    }
+  }, []);
+}
+```

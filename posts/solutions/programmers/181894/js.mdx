@@ -1,0 +1,19 @@
+import Includes from '@/posts/theories/js/array/includes.mdx';
+import Slice from '@/posts/theories/js/array/slice.mdx';
+import IndexOf from '@/posts/theories/js/array/index-of.mdx';
+
+## 이론
+
+<Includes />
+<Slice />
+<IndexOf />
+
+## 코드
+
+```js
+function solution(arr) {
+  if (!arr.includes(2)) return [-1];
+
+  return arr.slice(arr.indexOf(2), arr.lastIndexOf(2) + 1);
+}
+```

@@ -1,0 +1,18 @@
+import Reduce from '@/posts/theories/js/array/reduce.mdx';
+
+## 이론
+
+<Reduce />
+
+## 코드
+
+```js
+function solution(myString, pat) {
+  const string = [...myString].reduce(
+    (acc, cur) => (cur === 'A' ? acc + 'B' : acc + 'A'),
+    ''
+  );
+
+  return Number(string.includes(pat));
+}
+```

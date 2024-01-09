@@ -1,0 +1,14 @@
+먼저 `[index, rank]` 형태로 변환하고, 참여 가능한 사람만 필터링한 뒤, `rank`를 기준으로 오름차순 정렬해요.
+
+## 코드
+
+```js
+function solution(rank, attendance) {
+  const [[a], [b], [c]] = rank
+    .map((r, i) => [i, r])
+    .filter((_, i) => attendance[i])
+    .sort((a, b) => a[1] - b[1]);
+
+  return 10000 * a + 100 * b + c;
+}
+```
