@@ -1,4 +1,5 @@
 import Layout from '@/components/layout';
+import 'katex/dist/katex.min.css';
 import type { Metadata, Viewport } from 'next';
 import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
 import 'react-loading-skeleton/dist/skeleton.css';
