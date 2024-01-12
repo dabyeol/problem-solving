@@ -1,12 +1,10 @@
-'use client';
-
 import Banner from '@/components/banner';
 import IconButton from '@/components/icon-button';
 import { Container, Grid, Section } from '@/lib/client/style';
 import { ojList } from '@/lib/server/oj';
 import Link from 'next/link';
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       <Banner>

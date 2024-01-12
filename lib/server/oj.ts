@@ -24,3 +24,7 @@ export const ojList = [
     ],
   },
 ];
+
+export function getOj(id: string) {
+  return ojList.find(oj => oj.id === id);
+}

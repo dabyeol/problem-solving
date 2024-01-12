@@ -1,19 +1,24 @@
+import SolutionSkeleton from '@/components/solution-skeleton';
 import { sync } from 'glob';
 import matter from 'gray-matter';
 import dynamic from 'next/dynamic';
 import { QuestionData } from '../interface';
 
 /**
- * Get all solutions.
- * @returns The solutions.
+ * Get all solutions params.
+ * @returns The solutions params.
  */
-export function getAllSolutions() {
-  const paths = sync('posts/solutions/**/question.mdx');
+export function getSolutionsParams() {
+  const paths = sync('posts/solutions/*/*/*.mdx');
 
-  return paths.map(path => ({
-    oj: path.split('/')[2],
-    slug: path.split('/').slice(3, -1),
-  }));
+  return paths.map(path => {
+    const [oj, ...slug] = path
+      .replace(/\.mdx|\/question/g, '')
+      .split('/')
+      .slice(2);
+
+    return { oj, slug };
+  });
 }
 
 /**
@@ -22,55 +27,74 @@ export function getAllSolutions() {
  * @returns The questions.
  */
 export function getQuestions(oj: string) {
-  const paths = sync(`posts/solutions/${oj}/**/question.mdx`).sort((a, b) => {
-    const numA = Number(a.split('/').slice(3, -1).join('/'));
-    const numB = Number(b.split('/').slice(3, -1).join('/'));
+  const numbers = sync(`posts/solutions/${oj}/*/question.mdx`)
+    .map(path => Number(path.split('/')[3]))
+    .sort((a, b) => a - b);
 
-    return numA - numB;
-  });
+  return numbers.map(number => {
+    const languages = getSolutionLanguages(oj, number);
 
-  return paths.map(path => {
-    const slug = path.split('/').slice(3, -1);
-    const languages = getSolutionLanguages(
-      path.split('/').slice(2, -1).join('/')
-    );
-
-    return { ...getQuestionData([oj, ...slug].join('/')), slug, languages };
+    return { ...getQuestionData(oj, number), number, languages };
   });
 }
 
 /**
  * Get the data of a question.
- * @param path The path of the question.
+ * @param oj The online judge.
+ * @param number The number of the question.
  * @returns The data of the question.
  */
-export function getQuestionData(path: string) {
-  return matter.read(`posts/solutions/${path}/question.mdx`)
+export function getQuestionData(oj: string, number: number | string) {
+  return matter.read(`posts/solutions/${oj}/${number}/question.mdx`)
     .data as QuestionData;
 }
 
 /**
  * Get the question of a solution.
- * @param path The path of the question.
+ * @param oj The online judge.
+ * @param number The number of the question.
  * @returns The question.
  */
-export function getQuestion(path: string) {
+export function getQuestion(oj: string, number: number | string) {
   // Read frontmatter from question.mdx
-  const questionData = getQuestionData(path);
+  const questionData = getQuestionData(oj, number);
 
   return {
     questionData,
-    Question: dynamic(() => import(`@/posts/solutions/${path}/question.mdx`)),
+    Question: dynamic(
+      () => import(`@/posts/solutions/${oj}/${number}/question.mdx`)
+    ),
   };
 }
 
 /**
  * Get the languages of a solution.
- * @param path The path of the question.
+ * @param oj The online judge.
+ * @param number The number of the question.
  * @returns The languages of the solution.
  */
-export function getSolutionLanguages(path: string) {
-  const paths = sync(`posts/solutions/${path}/!(question).mdx`).sort();
+export function getSolutionLanguages(oj: string, number: number | string) {
+  const paths = sync(`posts/solutions/${oj}/${number}/!(question).mdx`).sort();
 
-  return paths.map(path => path.split(/\/|\./).at(-2) as string);
+  return paths.map(path => path.split(/\/|\./).at(-2)!);
+}
+
+/**
+ * Get the solution of a question.
+ * @param oj The online judge.
+ * @param number The number of the question.
+ * @param language The language of the solution.
+ * @returns The solution.
+ */
+export function getSolution(
+  oj: string,
+  number: number | string,
+  language: string
+) {
+  return dynamic(
+    () => import(`@/posts/solutions/${oj}/${number}/${language}.mdx`),
+    {
+      loading: SolutionSkeleton,
+    }
+  );
 }

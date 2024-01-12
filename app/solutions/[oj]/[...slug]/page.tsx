@@ -1,44 +1,52 @@
 import Banner from '@/components/banner';
 import ProseLayout from '@/components/prose-layout';
 import { Container } from '@/lib/client/style';
-import {
-  getAllSolutions,
-  getQuestion,
-  getSolutionLanguages,
-} from '@/lib/server/post';
-import { Suspense } from 'react';
-import QuestionLayout from './question-layout';
-import SolutionLayout from './solution-layout';
+import { getOj } from '@/lib/server/oj';
+import { getQuestionData, getSolutionsParams } from '@/lib/server/post';
+import QuestionTemplate from './question-template';
+import SolutionTemplate from './solution-template';
 
-export async function generateStaticParams() {
-  return getAllSolutions();
+export function generateStaticParams() {
+  return getSolutionsParams();
 }
 
-interface Params {
-  oj: string;
-  slug: string[];
+interface Props {
+  params: {
+    oj: string;
+    slug: string[];
+  };
 }
 
-interface SolutionProps {
-  params: Params;
+export function generateMetadata({
+  params: {
+    oj,
+    slug: [number, language],
+  },
+}: Props) {
+  const data = getQuestionData(oj, number);
+  const ojName = getOj(oj)?.name;
+  const title = `${ojName} ▸ ${data.title} (${data.subtitle})${
+    language ? ` ▸ ${language}` : ''
+  }`;
+
+  return { title };
 }
 
-export default function Solution({ params }: SolutionProps) {
-  const path = decodeURIComponent([params.oj, ...params.slug].join('/'));
-  const { questionData, Question } = getQuestion(path);
-  const languages = getSolutionLanguages(path);
+export default function Page({
+  params: {
+    oj,
+    slug: [number, language],
+  },
+}: Props) {
+  const { subtitle } = getQuestionData(oj, number);
 
   return (
     <>
-      <Banner small>{questionData.subtitle}</Banner>
+      <Banner small>{`${getOj(oj)?.name} ▸ ${subtitle}`}</Banner>
       <Container>
         <ProseLayout>
-          <QuestionLayout data={questionData}>
-            <Question />
-          </QuestionLayout>
-          <Suspense>
-            <SolutionLayout path={path} languages={languages} />
-          </Suspense>
+          <QuestionTemplate oj={oj} number={number} />
+          <SolutionTemplate oj={oj} number={number} language={language} />
         </ProseLayout>
       </Container>
     </>

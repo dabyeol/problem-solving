@@ -1,7 +1,12 @@
 import Banner from '@/components/banner';
 import { Container, Prose } from '@/lib/client/style';
+import { Metadata } from 'next';
 
-export default function About() {
+export const metadata: Metadata = {
+  title: '소개',
+};
+
+export default function Page() {
   return (
     <>
       <Banner>소개</Banner>

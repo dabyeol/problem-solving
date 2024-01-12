@@ -1,21 +1,24 @@
-import { getAllSolutions, getSolutionLanguages } from '@/lib/server/post';
+import { ojList } from '@/lib/server/oj';
+import { getSolutionsParams } from '@/lib/server/post';
 import { MetadataRoute } from 'next';
 
 const baseUrl = 'https://ps.dabyeol.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const solutions = getAllSolutions();
-  const solutionsSitemap = solutions.flatMap(solution => {
-    const path = decodeURIComponent([solution.oj, ...solution.slug].join('/'));
-    const languages = getSolutionLanguages(path);
+  const ojsSitemap = ojList.map(({ id }) => ({
+    url: `${baseUrl}/solutions/${id}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.8,
+  })) as MetadataRoute.Sitemap;
 
-    return languages.map(language => ({
-      url: `${baseUrl}/solutions/${path}?language=${language}`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    }));
-  }) as MetadataRoute.Sitemap;
+  const solutionsParams = getSolutionsParams();
+  const solutionsSitemap = solutionsParams.map(({ oj, slug }) => ({
+    url: `${baseUrl}/solutions/${oj}/${slug.join('/')}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly',
+    priority: 0.6,
+  })) as MetadataRoute.Sitemap;
 
   return [
     {
@@ -30,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    ...ojsSitemap,
     ...solutionsSitemap,
   ];
 }

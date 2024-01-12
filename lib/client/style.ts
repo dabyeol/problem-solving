@@ -48,9 +48,23 @@ export const Grid = styled.div`
   }
 `;
 
+export const Title = styled.h1`
+  font-size: var(--text-4xl);
+  font-weight: bold;
+`;
+
 export const Description = styled.span`
   font-weight: 500;
   color: var(--color-description);
+`;
+
+export const Tags = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
 `;
 
 export const Prose = styled.article`

@@ -1,6 +1,6 @@
 'use client';
 
-import { ojList } from '@/lib/server/oj';
+import { getOj } from '@/lib/server/oj';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -95,9 +95,7 @@ export default function SolutionItem({
     typeof level === 'string' ? level.split(' ').pop()?.[0] : level;
   const levelId =
     typeof level === 'string' ? level.split(' ')[0] : level.toString();
-  const color = ojList
-    .find(o => o.id === oj)
-    ?.levels.find(l => l.id === levelId)?.color!;
+  const color = getOj(oj)?.levels.find(l => l.id === levelId)?.color!;
 
   return (
     <Wrapper>
@@ -111,7 +109,7 @@ export default function SolutionItem({
 
       <Languages>
         {languages.map(language => (
-          <Link href={`${href}?language=${language}`} key={language}>
+          <Link href={`${href}/${language}`} key={language}>
             <Language
               src={`/images/languages/${language}.png`}
               width={24}
