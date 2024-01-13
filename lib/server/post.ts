@@ -13,7 +13,7 @@ export function getSolutionsParams() {
 
   return paths.map(path => {
     const [oj, ...slug] = path
-      .replace(/\.mdx|\/problem/g, '')
+      .replace(/\.mdx|\/problem|solution-/g, '')
       .split('/')
       .slice(2);
 
@@ -74,9 +74,9 @@ export function getProblem(oj: string, number: number | string) {
  * @returns The languages of the solution.
  */
 export function getSolutionLanguages(oj: string, number: number | string) {
-  const paths = sync(`posts/solutions/${oj}/${number}/!(problem).mdx`).sort();
+  const paths = sync(`posts/solutions/${oj}/${number}/solution-*.mdx`).sort();
 
-  return paths.map(path => path.split(/\/|\./).at(-2)!);
+  return paths.map(path => path.match(/solution-(.*)\.mdx/)?.[1]!);
 }
 
 /**
@@ -92,7 +92,7 @@ export function getSolution(
   language: string
 ) {
   return dynamic(
-    () => import(`@/posts/solutions/${oj}/${number}/${language}.mdx`),
+    () => import(`@/posts/solutions/${oj}/${number}/solution-${language}.mdx`),
     {
       loading: SolutionSkeleton,
     }
