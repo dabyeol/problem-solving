@@ -1,6 +1,6 @@
-## 이론
-
 [**A+B (1000)**](../1000/js)를 먼저 풀어보세요!
+
+## 이론
 
 ### 실수
 
@@ -64,13 +64,3 @@ console.log((a - b) / b); // 1.8503717077085943e-16
 
 자바스크립트에서는 64비트 부동소수점 방식을 사용하기 때문에 상대 오차가 10<sup>-15</sup> 정도에요.
 따라서 그냥 계산해도 주어진 조건을 만족해요.
-
-## 코드
-
-```js
-const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().split(' ');
-const [a, b] = input.map(Number);
-
-console.log(a / b);
-```

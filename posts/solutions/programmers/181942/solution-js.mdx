@@ -3,16 +3,3 @@ import Reduce from '@/posts/theories/js/array/reduce.mdx';
 ## 이론
 
 <Reduce />
-
-## 코드
-
-```js
-function solution(str1, str2) {
-  var answer = [...str1].reduce(
-    (prev, char, index) => prev + char + str2[index],
-    ''
-  );
-
-  return answer;
-}
-```

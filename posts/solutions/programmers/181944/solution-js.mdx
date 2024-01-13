@@ -7,23 +7,3 @@ a ? b : c;
 ```
 
 `a`가 참이면 `b`를, 거짓이면 `c`를 반환해요.
-
-## 코드
-
-```js
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-let input = [];
-
-rl.on('line', function (line) {
-  input = line.split(' ');
-}).on('close', function () {
-  n = Number(input[0]);
-
-  console.log(`${n} is ${n % 2 === 0 ? 'even' : 'odd'}`);
-});
-```

@@ -1,6 +1,6 @@
-## 이론
-
 [**Hello World (2557)**](../2557/js)를 먼저 풀어보세요!
+
+## 이론
 
 ### 변수 선언하기
 
@@ -67,13 +67,3 @@ const [a, b] = input.map(Number);
 예를 들어, `input`이 `["1", "2"]{:js}`인 경우 `input.map(Number){:js}`로 변환하면 `[1, 2]{:js}`가 되는 거에요.
 이 값들을 앞에서부터 `a`와 `b`에 저장해요.
 그러면 `a`는 `1{:js}`이고, `b`는 `2{:js}`가 되는 거에요.
-
-## 코드
-
-```js
-const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().split(' ');
-const [a, b] = input.map(Number);
-
-console.log(a + b);
-```

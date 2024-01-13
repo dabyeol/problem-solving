@@ -6,11 +6,3 @@ import Reduce from '@/posts/theories/js/array/reduce.mdx';
 `toString(2){:js}`를 통해 2진수로 변환할 수 있어요.
 
 <Reduce />
-
-## 코드
-
-```js
-function solution(num_list) {
-  return num_list.reduce((acc, cur) => acc + cur.toString(2).length - 1, 0);
-}
-```

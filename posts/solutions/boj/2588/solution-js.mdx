@@ -1,6 +1,6 @@
-## 이론
-
 [**사칙연산 (10869)**](../10869/js)를 먼저 풀어보세요!
+
+## 이론
 
 ### 입력받기
 
@@ -21,16 +21,3 @@ const [one, two] = input.map(Number);
 - 일의 자리: `num % 10{:js}`
 - 십의 자리: `Math.floor(num / 10) % 10{:js}`
 - 백의 자리: `Math.floor(num / 100) % 10{:js}`
-
-## 코드
-
-```js
-const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().split('\n');
-const [one, two] = input.map(Number);
-
-console.log(one * (two % 10));
-console.log(one * (Math.floor(two / 10) % 10));
-console.log(one * (Math.floor(two / 100) % 10));
-console.log(one * two);
-```

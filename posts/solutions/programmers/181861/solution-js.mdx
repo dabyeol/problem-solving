@@ -3,11 +3,3 @@ import Reduce from '@/posts/theories/js/array/reduce.mdx';
 ## 이론
 
 <Reduce />
-
-## 코드
-
-```js
-function solution(arr) {
-  return arr.reduce((acc, cur) => [...acc, ...Array(cur).fill(cur)], []);
-}
-```

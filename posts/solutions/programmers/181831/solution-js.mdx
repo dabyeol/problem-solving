@@ -1,10 +1,2 @@
 모든 `i`와 `j`에 대해 `arr[i][j] === arr[j][i]{:js}`인지 검사해야 해요.
 `every(){:js}`를 사용하면 간단하게 해결할 수 있어요.
-
-## 코드
-
-```js
-function solution(arr) {
-  return Number(arr.every((row, i) => row.every((v, j) => v === arr[j][i])));
-}
-```

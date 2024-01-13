@@ -1,6 +1,6 @@
-## 이론
-
 [**문자열 출력하기**](../181952/js)를 먼저 풀어보세요!
+
+## 이론
 
 ### 입력받기
 
@@ -77,25 +77,3 @@ console.log(`a = ${a}`);
 첫 번째 방법은 문자열과 변수를 `+`로 연결하는 방법이에요.
 두 번째 방법은 문자열을 `` ` ``(백틱)으로 감싸고 변수를 `${}`로 감싸는 방법이에요.
 여기에서는 두 번째 방법을 사용했어요.
-
-## 코드
-
-```js
-const readline = require('readline');
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-let input = [];
-
-rl.on('line', function (line) {
-  input = line.split(' ');
-}).on('close', function () {
-  const a = input[0];
-  const b = input[1];
-
-  console.log(`a = ${a}`);
-  console.log(`b = ${b}`);
-});
-```

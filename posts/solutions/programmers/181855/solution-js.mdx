@@ -27,14 +27,3 @@ map1.delete('b');
 console.log(map1.size);
 // Expected output: 2
 ```
-
-## 코드
-
-```js
-function solution(strArr) {
-  const map = new Map();
-  strArr.forEach(str => map.set(str.length, (map.get(str.length) ?? 0) + 1));
-
-  return Math.max(...map.values());
-}
-```

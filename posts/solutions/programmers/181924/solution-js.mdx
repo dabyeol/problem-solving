@@ -3,16 +3,3 @@ import DestructuringAssignment from '@/posts/theories/js/destructuring-assignmen
 ## 이론
 
 <DestructuringAssignment />
-
-## 코드
-
-```js
-function solution(arr, queries) {
-  var answer = [...arr];
-  queries.forEach(([i, j]) => {
-    [answer[i], answer[j]] = [answer[j], answer[i]];
-  });
-
-  return answer;
-}
-```

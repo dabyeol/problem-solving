@@ -24,8 +24,7 @@
   }
 }
 
-pre > code {
-  display: grid;
+[data-rehype-pretty-code-fragment] > pre > code {
   margin: 0 -1.25rem;
 }
 

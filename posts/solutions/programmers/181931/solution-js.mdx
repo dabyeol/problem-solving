@@ -3,11 +3,3 @@ import Reduce from '@/posts/theories/js/array/reduce.mdx';
 ## 이론
 
 <Reduce />
-
-## 코드
-
-```js
-function solution(a, d, included) {
-  return included.reduce((acc, cur, idx) => (cur ? acc + a + idx * d : acc), 0);
-}
-```

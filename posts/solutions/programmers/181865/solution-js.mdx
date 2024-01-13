@@ -3,20 +3,3 @@ import Split from '@/posts/theories/js/string/split.mdx';
 ## 이론
 
 <Split />
-
-## 코드
-
-```js
-function solution(binomial) {
-  const [a, op, b] = binomial.split(' ').map(v => (isNaN(v) ? v : Number(v)));
-
-  switch (op) {
-    case '+':
-      return a + b;
-    case '-':
-      return a - b;
-    case '*':
-      return a * b;
-  }
-}
-```

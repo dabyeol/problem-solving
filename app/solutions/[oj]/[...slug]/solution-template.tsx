@@ -1,5 +1,10 @@
+import CodeMDX from '@/components/code-mdx';
 import { Prose, Section } from '@/lib/client/style';
-import { getSolution, getSolutionLanguages } from '@/lib/server/post';
+import {
+  getSolution,
+  getSolutionCode,
+  getSolutionLanguages,
+} from '@/lib/server/post';
 import Link from 'next/link';
 import { Language, Languages } from './style';
 
@@ -12,6 +17,7 @@ interface Props {
 export default function SolutionTemplate({ oj, number, language }: Props) {
   const languages = getSolutionLanguages(oj, number);
   const Solution = language && getSolution(oj, number, language);
+  const code = language && getSolutionCode(oj, number, language);
 
   return (
     <Section>
@@ -38,7 +44,15 @@ export default function SolutionTemplate({ oj, number, language }: Props) {
               </Link>
             ))}
           </Languages>
-          <Prose>{Solution ? <Solution /> : <p>언어를 선택해주세요.</p>}</Prose>
+          <Prose>
+            {Solution ? <Solution /> : <p>언어를 선택해주세요.</p>}
+            {code && (
+              <>
+                <h2>코드</h2>
+                <CodeMDX source={code} />
+              </>
+            )}
+          </Prose>
         </>
       ) : (
         <p>아직 풀이가 없어요.</p>

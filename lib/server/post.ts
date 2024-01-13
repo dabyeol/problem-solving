@@ -1,4 +1,5 @@
 import SolutionSkeleton from '@/components/solution-skeleton';
+import { readFileSync } from 'fs';
 import { sync } from 'glob';
 import matter from 'gray-matter';
 import dynamic from 'next/dynamic';
@@ -97,4 +98,28 @@ export function getSolution(
       loading: SolutionSkeleton,
     }
   );
+}
+
+/**
+ * Get the code of a solution.
+ * @param oj The online judge.
+ * @param number The number of the problem.
+ * @param language The language of the solution.
+ * @returns The code of the solution.
+ */
+export function getSolutionCode(
+  oj: string,
+  number: number | string,
+  language: string
+) {
+  try {
+    return `\`\`\`${language}
+${
+  language &&
+  readFileSync(`posts/solutions/${oj}/${number}/code.${language}`, 'utf-8')
+}\`\`\`
+`;
+  } catch {
+    return;
+  }
 }

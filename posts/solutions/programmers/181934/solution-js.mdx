@@ -8,12 +8,3 @@
 그래서 먼저 `eq`가 `'='{:js}`이고 `n`과 `m`이 같은지 확인하고, 같으면 `1`을 반환해요.
 
 Boolean 값을 숫자로 바꾸면, `true`는 `1`로, `false`는 `0`으로 바뀌어요.
-
-## 코드
-
-```js
-function solution(ineq, eq, n, m) {
-  if (eq === '=' && n === m) return 1;
-  return Number(ineq === '<' ? n < m : n > m);
-}
-```

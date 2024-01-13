@@ -27,11 +27,3 @@ function solution(myString, pat) {
 
 여기서 `(?=)`는 전방 탐색이라는 정규식 문법이에요. 전방 탐색은 `pat`이라는 패턴이 나오기 전까지만 탐색을 하겠다는 의미에요.
 이렇게 쓰지 않으면 `pat`이라는 패턴 이후부터 탐색을 하기 때문에, `pat`이 중복되는 경우를 제대로 찾을 수 없어요.
-
-## 코드
-
-```js
-function solution(myString, pat) {
-  return myString.match(new RegExp(`(?=${pat})`, 'g'))?.length || 0;
-}
-```

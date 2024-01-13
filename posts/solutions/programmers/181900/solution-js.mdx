@@ -7,14 +7,3 @@ import Includes from '@/posts/theories/js/array/includes.mdx';
 
 <Reduce />
 <Includes />
-
-## 코드
-
-```js
-function solution(my_string, indices) {
-  return [...my_string].reduce(
-    (acc, cur, idx) => (indices.includes(idx) ? acc : acc + cur),
-    ''
-  );
-}
-```
