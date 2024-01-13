@@ -2,8 +2,8 @@ import Banner from '@/components/banner';
 import ProseLayout from '@/components/prose-layout';
 import { Container } from '@/lib/client/style';
 import { getOj } from '@/lib/server/oj';
-import { getQuestionData, getSolutionsParams } from '@/lib/server/post';
-import QuestionTemplate from './question-template';
+import { getProblemData, getSolutionsParams } from '@/lib/server/post';
+import ProblemTemplate from './problem-template';
 import SolutionTemplate from './solution-template';
 
 export function generateStaticParams() {
@@ -23,7 +23,7 @@ export function generateMetadata({
     slug: [number, language],
   },
 }: Props) {
-  const data = getQuestionData(oj, number);
+  const data = getProblemData(oj, number);
   const ojName = getOj(oj)?.name;
   const title = `${ojName} ▸ ${data.title} (${data.subtitle})${
     language ? ` ▸ ${language}` : ''
@@ -38,14 +38,14 @@ export default function Page({
     slug: [number, language],
   },
 }: Props) {
-  const { subtitle } = getQuestionData(oj, number);
+  const { subtitle } = getProblemData(oj, number);
 
   return (
     <>
       <Banner small>{`${getOj(oj)?.name} ▸ ${subtitle}`}</Banner>
       <Container>
         <ProseLayout>
-          <QuestionTemplate oj={oj} number={number} />
+          <ProblemTemplate oj={oj} number={number} />
           <SolutionTemplate oj={oj} number={number} language={language} />
         </ProseLayout>
       </Container>

@@ -1,14 +1,14 @@
 import Button from '@/components/button';
 import { Prose, Section, Tags, Title } from '@/lib/client/style';
-import { getQuestion } from '@/lib/server/post';
+import { getProblem } from '@/lib/server/post';
 
 interface Props {
   oj: string;
   number: string;
 }
 
-export default function QuestionTemplate({ oj, number }: Props) {
-  const { questionData: data, Question } = getQuestion(oj, number);
+export default function ProblemTemplate({ oj, number }: Props) {
+  const { problemData: data, Problem } = getProblem(oj, number);
 
   return (
     <>
@@ -24,7 +24,7 @@ export default function QuestionTemplate({ oj, number }: Props) {
       </Section>
 
       <Prose>
-        <Question />
+        <Problem />
       </Prose>
     </>
   );
