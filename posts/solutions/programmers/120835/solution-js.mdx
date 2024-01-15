@@ -1,0 +1,17 @@
+import IndexOf from '@/posts/theories/js/array/index-of.mdx';
+
+먼저 `emergency` 배열을 내림차순으로 정렬한 배열을 만들어요.
+
+```js
+const sorted = [...emergency].sort((a, b) => b - a);
+```
+
+그리고 `indexOf(){:js}` 메서드를 이용해서 `emergency` 배열의 각 요소가 `sorted` 배열에서 몇 번째에 있는지 찾아요.
+
+```js
+return emergency.map(n => sorted.indexOf(n) + 1);
+```
+
+## 이론
+
+<IndexOf />

@@ -1,0 +1,20 @@
+import Map from '@/posts/theories/js/map.mdx';
+
+먼저 `Map` 객체를 이용해서 해당 값이 몇 번 등장했는지 저장하는 객체를 만들어요.
+
+```js
+const map = new Map();
+array.forEach(n => map.set(n, (map.get(n) ?? 0) + 1));
+```
+
+그 다음에 빈도수를 기준으로 내림차순 정렬을 해 준 다음, 가장 많이 등장한 두 수를 저장해요.
+
+```js
+const [a, b] = [...map].sort(([, a], [, b]) => b - a);
+```
+
+두 수가 같은 경우에는 최빈값이 여러 개인 경우여서 `-1`을 출력하고, 그렇지 않은 경우에는 `a[0]{:js}`을 출력해요.
+
+## 이론
+
+<Map />
