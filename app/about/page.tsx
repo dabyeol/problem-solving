@@ -1,6 +1,6 @@
 import Banner from '@/components/banner';
 import { Container, Prose } from '@/lib/client/style';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: '소개',

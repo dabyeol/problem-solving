@@ -1,6 +1,6 @@
 import { ojList } from '@/lib/server/oj';
 import { getSolutionsParams } from '@/lib/server/post';
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
 
 const baseUrl = 'https://ps.dabyeol.com';
 
