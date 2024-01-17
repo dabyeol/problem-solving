@@ -1,0 +1,21 @@
+import Reduce from '@/posts/theories/js/array/reduce.mdx';
+
+먼저 `map`이라는 2차원 배열을 만들어요. `map`은 `board`와 같은 크기이고, 모든 값이 1인 배열이에요. 안전하지 않은 경우 0으로 바꿔줄 거예요.
+
+```js
+const map = [...Array(board.length)].map(() => Array(board.length).fill(1));
+```
+
+그 다음 `board`를 순회하면서 `map`에 값을 넣어요.
+
+마지막으로 `map`을 순회하면서 모든 값을 더해요.
+
+```js
+map.flat().reduce((acc, cur) => acc + cur);
+```
+
+`flat(){:js}`은 2차원 배열을 1차원 배열로 만들어요.
+
+## 이론
+
+<Reduce />
