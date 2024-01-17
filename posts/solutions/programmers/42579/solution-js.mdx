@@ -1,0 +1,42 @@
+import Map from '@/posts/theories/js/map.mdx';
+
+먼저 `map` 안에 노래 정보를 넣어요. 형식은 아래와 같아요.
+
+```js
+({
+  plays: 0,
+  songs: [], // [[번호, 재생 횟수], ...]
+});
+```
+
+```js
+const map = new Map();
+genres.forEach((genre, i) => {
+  const g = map.get(genre) || { plays: 0, songs: [] };
+  g.plays += plays[i];
+  g.songs.push([i, plays[i]]);
+
+  map.set(genre, g);
+});
+```
+
+그 다음, `map`을 재생 횟수가 많은 순으로 정렬해요.
+
+```js
+const sorted = [...map.values()].sort((a, b) => b.plays - a.plays);
+```
+
+마지막으로, `sorted`를 순회하면서 노래 번호 배열을 만들어요.
+
+```js
+return sorted.flatMap(({ songs }) =>
+  songs
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 2)
+    .map(([i]) => i)
+);
+```
+
+## 이론
+
+<Map />
