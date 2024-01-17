@@ -1,0 +1,23 @@
+### [eval()](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/eval)
+
+`eval(){:js}`은 문자로 표현된 JavaScript 코드를 실행하는 함수예요.
+
+```js
+console.log(eval('2 + 2'));
+// Expected output: 4
+
+console.log(eval(new String('2 + 2')));
+// Expected output: 2 + 2
+
+console.log(eval('2 + 2') === eval('4'));
+// Expected output: true
+
+console.log(eval('2 + 2') === eval(new String('2 + 2')));
+// Expected output: false
+```
+
+> ### `eval`을 절대 사용하지 말 것!
+>
+> `eval(){:js}`은 인자로 받은 문자열을 자바스크립트 코드로 실행하는 함수예요. 악의적인 사용자가 `eval(){:js}`에 악성 코드를 넣어서 실행하면, 악성 코드가 실행되어 보안에 매우 취약해져요.
+>
+> 또한 최신 자바스크립트 엔진에서 여러 최적화를 수행하는데, `eval(){:js}`을 사용하면 이러한 최적화를 수행할 수 없어 성능이 떨어져요.
