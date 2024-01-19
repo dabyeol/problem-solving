@@ -1,5 +1,5 @@
 import { ojList } from '@/lib/server/oj';
-import { getSolutionsParams } from '@/lib/server/post';
+import { generateSolutionsParams } from '@/lib/server/post';
 import type { MetadataRoute } from 'next';
 
 const baseUrl = 'https://ps.dabyeol.com';
@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   })) as MetadataRoute.Sitemap;
 
-  const solutionsParams = getSolutionsParams();
+  const solutionsParams = generateSolutionsParams();
   const solutionsSitemap = solutionsParams.map(({ oj, slug }) => ({
     url: `${baseUrl}/solutions/${oj}/${slug.join('/')}`,
     lastModified: new Date(),

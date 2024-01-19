@@ -45,7 +45,8 @@ export default function SolutionTemplate({ oj, number, language }: Props) {
             ))}
           </Languages>
           <Prose>
-            {Solution ? <Solution /> : <p>언어를 선택해주세요.</p>}
+            {!language && <p>언어를 선택해주세요.</p>}
+            {Solution && <Solution />}
             {code && (
               <>
                 <h2>코드</h2>

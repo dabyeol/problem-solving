@@ -2,12 +2,12 @@ import Banner from '@/components/banner';
 import ProseLayout from '@/components/prose-layout';
 import { Container } from '@/lib/client/style';
 import { getOj } from '@/lib/server/oj';
-import { getProblemData, getSolutionsParams } from '@/lib/server/post';
+import { generateSolutionsParams, getProblemData } from '@/lib/server/post';
 import ProblemTemplate from './problem-template';
 import SolutionTemplate from './solution-template';
 
 export function generateStaticParams() {
-  return getSolutionsParams();
+  return generateSolutionsParams();
 }
 
 interface Props {
