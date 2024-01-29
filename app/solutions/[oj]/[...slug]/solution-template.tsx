@@ -1,6 +1,7 @@
 import CodeMDX from '@/components/code-mdx';
 import { Prose, Section } from '@/lib/client/style';
 import {
+  getCommonSolution,
   getSolution,
   getSolutionCode,
   getSolutionLanguages,
@@ -16,6 +17,7 @@ interface Props {
 
 export default function SolutionTemplate({ oj, number, language }: Props) {
   const languages = getSolutionLanguages(oj, number);
+  const CommonSolution = language && getCommonSolution(oj, number);
   const Solution = language && getSolution(oj, number, language);
   const code = language && getSolutionCode(oj, number, language);
 
@@ -46,13 +48,9 @@ export default function SolutionTemplate({ oj, number, language }: Props) {
           </Languages>
           <Prose>
             {!language && <p>언어를 선택해주세요.</p>}
+            {CommonSolution && <CommonSolution />}
             {Solution && <Solution />}
-            {code && (
-              <>
-                <h2>코드</h2>
-                <CodeMDX source={code} />
-              </>
-            )}
+            {code && <CodeMDX source={code} />}
           </Prose>
         </>
       ) : (

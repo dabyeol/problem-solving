@@ -69,6 +69,25 @@ export function getProblem(oj: string, number: number | string) {
 }
 
 /**
+ * Get the common solution of a problem.
+ * @param oj The online judge.
+ * @param number The number of the problem.
+ * @returns The common solution.
+ */
+export function getCommonSolution(oj: string, number: number | string) {
+  const exists = existsSync(`posts/solutions/${oj}/${number}/solution.mdx`);
+
+  if (!exists) return;
+
+  return dynamic(
+    () => import(`@/posts/solutions/${oj}/${number}/solution.mdx`),
+    {
+      loading: SolutionSkeleton,
+    }
+  );
+}
+
+/**
  * Get the languages of a solution.
  * @param oj The online judge.
  * @param number The number of the problem.
@@ -122,7 +141,9 @@ export function getSolutionCode(
 
   if (!exists) return;
 
-  return `\`\`\`${language}
+  return `## 코드
+
+\`\`\`${language}
 ${
   language &&
   readFileSync(`posts/solutions/${oj}/${number}/code.${language}`, 'utf-8')
