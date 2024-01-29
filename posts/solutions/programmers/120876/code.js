@@ -6,5 +6,5 @@ function solution(lines) {
     }
   });
 
-  return array.filter(v => v > 1).length;
+  return array.filter(v => v >= 2).length;
 }

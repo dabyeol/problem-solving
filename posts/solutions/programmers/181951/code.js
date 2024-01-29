@@ -9,8 +9,7 @@ let input = [];
 rl.on('line', function (line) {
   input = line.split(' ');
 }).on('close', function () {
-  const a = input[0];
-  const b = input[1];
+  const [a, b] = input;
 
   console.log(`a = ${a}`);
   console.log(`b = ${b}`);

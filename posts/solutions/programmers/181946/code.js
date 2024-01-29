@@ -9,8 +9,7 @@ let input = [];
 rl.on('line', function (line) {
   input = line.split(' ');
 }).on('close', function () {
-  str1 = input[0];
-  str2 = input[1];
+  const [str1, str2] = input;
 
   console.log(str1 + str2);
 });

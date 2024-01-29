@@ -1,8 +1,3 @@
 function solution(str1, str2) {
-  var answer = [...str1].reduce(
-    (prev, char, index) => prev + char + str2[index],
-    ''
-  );
-
-  return answer;
+  return [...str1].reduce((acc, cur, idx) => acc + cur + str2[idx], '');
 }

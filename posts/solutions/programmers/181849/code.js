@@ -1,3 +1,3 @@
 function solution(num_str) {
-  return [...num_str].reduce((acc, cur) => acc + Number(cur), 0);
+  return [...num_str].map(Number).reduce((acc, cur) => acc + cur);
 }

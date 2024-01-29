@@ -1,8 +1,8 @@
 function solution(polynomial) {
   let [a, b] = [0, 0];
   polynomial.split(' + ').forEach(n => {
-    if (isNaN(n)) {
-      a += Number(n.padStart(2, 1).slice(0, -1));
+    if (n.includes('x')) {
+      a += Number(n.slice(0, -1) || 1);
     } else {
       b += Number(n);
     }

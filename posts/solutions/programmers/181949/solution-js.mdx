@@ -1,3 +1,5 @@
+import Reduce from '@/posts/theories/js/array/reduce.mdx';
+
 ## 이론
 
 ### 대문자와 소문자 변환
@@ -17,23 +19,22 @@ let input = [];
 rl.on('line', function (line) {
   input = [line];
 }).on('close', function () {
-  str = input[0];
-  output = '';
-
-  [...str].forEach(char => {
-    if (char === char.toUpperCase()) {
-      output += char.toLowerCase();
+  const str = input[0];
+  output = [...str].reduce((acc, cur) => {
+    if (cur === cur.toUpperCase()) {
+      acc += cur.toLowerCase();
     } else {
-      output += char.toUpperCase();
+      acc += cur.toUpperCase();
     }
-  });
+    return acc;
+  }, '');
 
   console.log(output);
 });
 ```
 
-`output` 변수에 문자열을 더해가는 방식으로 풀었어요.
-`[...str]{:js}`을 통해 문자열을 배열로 만들고, `forEach(){:js}`를 통해 각 문자를 순회하면서 대문자인지 소문자인지 확인하고, 그에 맞게 변환해주었어요.
+`reduce(){:js}`를 사용해서 풀었어요.
+`[...str]{:js}`을 통해 문자열을 배열로 만들고, `reduce(){:js}`를 통해 각 문자를 순회하면서 대문자인지 소문자인지 확인하고, 그에 맞게 변환해주었어요.
 
 ### 전개 구문 (Spread Syntax)
 
@@ -45,14 +46,4 @@ const str = 'hello';
 console.log([...str]); // ['h', 'e', 'l', 'l', 'o']
 ```
 
-### 반복문
-
-반복문은 특정한 작업을 반복적으로 수행할 때 사용해요.
-그 중 `forEach(){:js}`는 배열의 각 요소에 대해 한 번씩 제공한 함수를 실행해요.
-
-```js
-const arr = [1, 2, 3, 4, 5];
-arr.forEach(num => {
-  console.log(num);
-});
-```
+<Reduce />

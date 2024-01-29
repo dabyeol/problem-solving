@@ -1,21 +1,13 @@
 function solution(code) {
   let mode = 0;
-  const ret = [...code].reduce((acc, cur, i) => {
-    if (mode === 0) {
-      if (cur !== '1') {
-        return i % 2 ? acc : acc + cur;
-      } else {
-        mode = 1;
-        return acc;
-      }
-    } else {
-      if (cur !== '1') {
-        return i % 2 ? acc + cur : acc;
-      } else {
-        mode = 0;
-        return acc;
-      }
+  const ret = [...code].reduce((acc, cur, idx) => {
+    if (cur === '1') {
+      mode ^= 1;
+    } else if (idx % 2 === mode) {
+      return acc + cur;
     }
+
+    return acc;
   }, '');
 
   return ret.length === 0 ? 'EMPTY' : ret;

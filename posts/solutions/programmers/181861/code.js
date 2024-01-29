@@ -1,3 +1,3 @@
 function solution(arr) {
-  return arr.reduce((acc, cur) => [...acc, ...Array(cur).fill(cur)], []);
+  return arr.flatMap(a => new Array(a).fill(a));
 }

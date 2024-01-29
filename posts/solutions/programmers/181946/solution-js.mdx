@@ -13,9 +13,6 @@ let input = [];
 
 rl.on('line', function (line) {
   input = line.split(' ');
-}).on('close', function () {
-  str1 = input[0];
-  str2 = input[1];
 });
 ```
 
@@ -24,7 +21,7 @@ rl.on('line', function (line) {
 
 ### 출력하기
 
-```js {15}
+```js {14}
 const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
@@ -36,8 +33,7 @@ let input = [];
 rl.on('line', function (line) {
   input = line.split(' ');
 }).on('close', function () {
-  str1 = input[0];
-  str2 = input[1];
+  const [str1, str2] = input;
 
   console.log(str1 + str2);
 });

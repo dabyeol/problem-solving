@@ -1,8 +1,7 @@
 function solution(numLog) {
-  var answer = '';
-  for (let i = 1; i < numLog.length; i++) {
-    const diff = numLog[i] - numLog[i - 1];
-    switch (diff) {
+  let answer = '';
+  [...numLog].reduce((acc, cur) => {
+    switch (cur - acc) {
       case 1:
         answer += 'w';
         break;
@@ -16,7 +15,9 @@ function solution(numLog) {
         answer += 'a';
         break;
     }
-  }
+
+    return cur;
+  });
 
   return answer;
 }

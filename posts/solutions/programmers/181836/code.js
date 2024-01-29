@@ -1,5 +1,5 @@
 function solution(picture, k) {
-  var answer = [];
+  const answer = [];
   picture.forEach(row => {
     const str = [...row].map(c => c.repeat(k)).join('');
     for (let i = 0; i < k; i++) {

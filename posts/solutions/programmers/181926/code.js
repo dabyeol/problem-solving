@@ -1,5 +1,5 @@
 function solution(n, control) {
-  var answer = n;
+  let answer = n;
   [...control].forEach(char => {
     switch (char) {
       case 'w':

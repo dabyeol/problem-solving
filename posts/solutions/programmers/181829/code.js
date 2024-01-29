@@ -1,5 +1,5 @@
 function solution(board, k) {
-  var answer = 0;
+  let answer = 0;
   board.forEach((row, i) =>
     row.forEach((v, j) => {
       if (i + j <= k) {

@@ -1,9 +1,16 @@
 function solution(arr, flag) {
-  return arr.reduce((acc, cur, i) => {
+  const answer = [];
+  arr.forEach((v, i) => {
     if (flag[i]) {
-      return [...acc, ...Array(cur * 2).fill(cur)];
+      for (let j = 0; j < v * 2; j++) {
+        answer.push(v);
+      }
     } else {
-      return acc.slice(0, -cur);
+      for (let j = 0; j < v; j++) {
+        answer.pop();
+      }
     }
-  }, []);
+  });
+
+  return answer;
 }

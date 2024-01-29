@@ -1,19 +1,19 @@
 function solution(keyinput, board) {
   let [x, y] = [0, 0];
-  const [limX, limY] = board.map(v => (v - 1) / 2);
+  const [lx, ly] = board.map(l => (l - 1) / 2);
   keyinput.forEach(key => {
     switch (key) {
       case 'up':
-        y < limY && y++;
+        y < ly && y++;
         break;
       case 'down':
-        y > -limY && y--;
+        y > -ly && y--;
         break;
       case 'left':
-        x > -limX && x--;
+        x > -lx && x--;
         break;
       case 'right':
-        x < limX && x++;
+        x < lx && x++;
     }
   });
 

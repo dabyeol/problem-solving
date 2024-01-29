@@ -1,5 +1,7 @@
 function solution(board) {
-  const map = [...Array(board.length)].map(() => Array(board.length).fill(1));
+  const map = [...Array(board.length)].map(() =>
+    new Array(board.length).fill(1)
+  );
   board.forEach((row, i) =>
     row.forEach((col, j) => {
       if (col) {

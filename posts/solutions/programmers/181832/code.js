@@ -1,8 +1,7 @@
 function solution(n) {
-  var answer = [...Array(n)].map(() => []);
+  const answer = [...Array(n)].map(() => []);
+  let [i, j] = [0, 0];
   let direction = 'r';
-  let i = 0;
-  let j = 0;
   for (let k = 1; k <= n ** 2; k++) {
     answer[i][j] = k;
     switch (direction) {

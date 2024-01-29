@@ -9,16 +9,15 @@ let input = [];
 rl.on('line', function (line) {
   input = [line];
 }).on('close', function () {
-  str = input[0];
-  output = '';
-
-  [...str].forEach(char => {
-    if (char === char.toUpperCase()) {
-      output += char.toLowerCase();
+  const str = input[0];
+  output = [...str].reduce((acc, cur) => {
+    if (cur === cur.toUpperCase()) {
+      acc += cur.toLowerCase();
     } else {
-      output += char.toUpperCase();
+      acc += cur.toUpperCase();
     }
-  });
+    return acc;
+  }, '');
 
   console.log(output);
 });

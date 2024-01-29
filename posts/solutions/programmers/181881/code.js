@@ -1,22 +1,21 @@
 function solution(arr) {
-  let x = 0;
-  while (true) {
-    let count = 0;
-    arr = arr.map(n => {
-      if (n >= 50 && !(n % 2)) {
-        return n / 2;
-      } else if (n < 50 && n % 2) {
-        return n * 2 + 1;
+  let answer = 0;
+  arr.forEach(v => {
+    let prev = 0;
+    let i = 0;
+    while (v !== prev) {
+      prev = v;
+      if (v >= 50 && v % 2 === 0) {
+        v /= 2;
+      } else if (v < 50 && v % 2 === 1) {
+        v = v * 2 + 1;
       }
 
-      count++;
-      return n;
-    });
-
-    if (count === arr.length) {
-      return x;
+      i++;
     }
 
-    x++;
-  }
+    answer = Math.max(answer, i - 1);
+  });
+
+  return answer;
 }

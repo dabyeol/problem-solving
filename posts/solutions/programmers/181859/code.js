@@ -8,5 +8,5 @@ function solution(arr) {
     }
   }
 
-  return stk.length === 0 ? [-1] : stk;
+  return stk.length ? stk : [-1];
 }

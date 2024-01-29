@@ -1,14 +1,12 @@
-import Slice from '@/posts/theories/js/array/slice.mdx';
-
 ## 이론
 
 반복문을 이용해서 다음과 같이 풀 수 있어요.
 
 ```js
 function solution(myString, pat) {
-  var answer = 0;
+  let answer = 0;
   for (let i = 0; i <= myString.length - pat.length; i++) {
-    if (myString.slice(i, i + pat.length) === pat) {
+    if (myString.slice(i).startsWith(pat)) {
       answer++;
     }
   }
