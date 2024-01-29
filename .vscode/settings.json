@@ -1,3 +1,5 @@
 {
-  "stylelint.validate": ["css", "scss", "typescript", "typescriptreact"]
+  "stylelint.validate": ["css", "scss", "typescript", "typescriptreact"],
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "basic"
 }
