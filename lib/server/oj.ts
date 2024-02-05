@@ -3,6 +3,7 @@ export const ojList = [
     id: 'boj',
     name: '백준 온라인 저지',
     levels: [
+      { id: 'Sprout', color: '#9c0' },
       { id: 'Bronze', color: '#a50' },
       { id: 'Silver', color: '#457' },
       { id: 'Gold', color: '#e90' },

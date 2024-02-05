@@ -1,6 +1,6 @@
 'use client';
 
-import { getOj } from '@/lib/server/oj';
+import { getLevelInfo } from '@/lib/utils';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -91,16 +91,12 @@ export default function SolutionItem({
   level,
   languages,
 }: SolutionItemProps) {
-  const levelText =
-    typeof level === 'string' ? level.split(' ').pop()?.[0] : level;
-  const levelId =
-    typeof level === 'string' ? level.split(' ')[0] : level.toString();
-  const color = getOj(oj)?.levels.find(l => l.id === levelId)?.color!;
+  const { text, color } = getLevelInfo(oj, level);
 
   return (
     <Wrapper>
       <Left href={href}>
-        <Level color={color}>{levelText}</Level>
+        <Level color={color}>{text}</Level>
         <Titlebar>
           <Title>{title}</Title>
           <Subtitle>{subtitle}</Subtitle>
