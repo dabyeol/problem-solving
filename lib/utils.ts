@@ -5,13 +5,13 @@ export function getUnsplashUrl(id: string) {
 }
 
 export function getLevelInfo(oj: string, level: string | number) {
-  const text = typeof level === 'string' ? level.split(' ')[1] : level;
   const levelId =
     typeof level === 'string' ? level.split(' ')[0] : level.toString();
   const color = getOj(oj)?.levels.find(l => l.id === levelId)?.color!;
+  const value = typeof level === 'string' ? level.split(' ')[1] : level;
 
   return {
-    text,
     color,
+    value,
   };
 }

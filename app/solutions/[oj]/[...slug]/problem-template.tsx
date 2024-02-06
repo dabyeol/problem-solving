@@ -1,7 +1,7 @@
 import Button from '@/components/button';
+import Level from '@/components/level';
 import { Prose, Section, Tags, Title } from '@/lib/client/style';
 import { getProblem } from '@/lib/server/post';
-import { Level, TitleBar } from './style';
 import { getLevelInfo } from '@/lib/utils';
 
 interface Props {
@@ -11,15 +11,14 @@ interface Props {
 
 export default function ProblemTemplate({ oj, number }: Props) {
   const { problemData: data, Problem } = getProblem(oj, number);
-  const { text, color } = getLevelInfo(oj, data.level);
+  const { color, value } = getLevelInfo(oj, data.level);
 
   return (
     <>
       <Section>
-        <TitleBar>
-          <Title>{data.title}</Title>
-          <Level color={color}>{text}</Level>
-        </TitleBar>
+        <Title>
+          {data.title} <Level color={color} value={value} />
+        </Title>
         {data.tags && (
           <Tags>
             {data.tags.map(tag => (

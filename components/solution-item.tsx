@@ -4,6 +4,7 @@ import { getLevelInfo } from '@/lib/utils';
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import Link from 'next/link';
+import Level from './level';
 
 const Wrapper = styled.div`
   box-sizing: content-box;
@@ -30,19 +31,6 @@ const Left = styled(Link)`
   gap: 12px;
   align-items: center;
   justify-content: flex-start;
-`;
-
-const Level = styled.div<{ color: string }>`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  font-size: var(--text-xs);
-  font-weight: bold;
-  color: #fff;
-  background-color: ${({ color }) => color};
-  border-radius: 4px;
 `;
 
 const Titlebar = styled.div`
@@ -91,12 +79,12 @@ export default function SolutionItem({
   level,
   languages,
 }: SolutionItemProps) {
-  const { text, color } = getLevelInfo(oj, level);
+  const { color, value } = getLevelInfo(oj, level);
 
   return (
     <Wrapper>
       <Left href={href}>
-        <Level color={color}>{text}</Level>
+        <Level color={color} value={value} />
         <Titlebar>
           <Title>{title}</Title>
           <Subtitle>{subtitle}</Subtitle>
