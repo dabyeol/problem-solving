@@ -1,5 +1,4 @@
 const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().split(' ');
-const [a, b] = input.map(Number);
+const [a, b] = fs.readFileSync(0).toString().split(' ').map(Number);
 
 console.log(a - b);

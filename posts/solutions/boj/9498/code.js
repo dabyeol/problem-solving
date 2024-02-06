@@ -1,5 +1,5 @@
 const fs = require('fs');
-const input = Number(fs.readFileSync('/dev/stdin'));
+const input = Number(fs.readFileSync(0));
 
 if (input >= 90) {
   console.log('A');

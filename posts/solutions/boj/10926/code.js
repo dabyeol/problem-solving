@@ -1,4 +1,4 @@
 const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().trim();
+const input = fs.readFileSync(0).toString().trim();
 
 console.log(input + '??!');

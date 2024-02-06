@@ -1,8 +1,7 @@
 const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().split('\n');
-const [one, two] = input.map(Number);
+const [a, b] = fs.readFileSync(0).toString().split('\n').map(Number);
 
-console.log(one * (two % 10));
-console.log(one * (Math.floor(two / 10) % 10));
-console.log(one * (Math.floor(two / 100) % 10));
-console.log(one * two);
+console.log(a * (b % 10));
+console.log(a * (Math.floor(b / 10) % 10));
+console.log(a * (Math.floor(b / 100) % 10));
+console.log(a * b);

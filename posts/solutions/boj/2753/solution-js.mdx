@@ -6,27 +6,19 @@
 
 ```js {2}
 const fs = require('fs');
-const input = Number(fs.readFileSync('/dev/stdin'));
+const input = Number(fs.readFileSync(0));
 ```
 
 `Number(){:js}`를 사용하여 입력받은 문자열을 숫자로 변환해요.
-
-### 삼항 연산자
-
-```js
-a ? b : c;
-```
-
-a가 참이면 b를, 거짓이면 c를 반환해요.
 
 ### 출력하기
 
 ```js
 console.log(
-  input % 4 === 0 && (input % 100 !== 0 || input % 400 === 0) ? 1 : 0
+  Number(input % 4 === 0 && (input % 100 !== 0 || input % 400 === 0))
 );
 ```
 
-삼항 연산자를 사용하여 윤년이면 1, 아니면 0을 출력해요.
+boolean 값을 숫자로 변환하여 출력해요.
 자바스크립트에서는 `==={:js}` 연산자를 사용하여 값과 타입을 비교해요.
 `=={:js}` 연산자는 값만 비교하고 타입은 비교하지 않아요.

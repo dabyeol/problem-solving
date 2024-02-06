@@ -1,6 +1,6 @@
 const fs = require('fs');
-const input = Number(fs.readFileSync('/dev/stdin'));
+const input = Number(fs.readFileSync(0));
 
 console.log(
-  input % 4 === 0 && (input % 100 !== 0 || input % 400 === 0) ? 1 : 0
+  Number(input % 4 === 0 && (input % 100 !== 0 || input % 400 === 0))
 );

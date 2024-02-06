@@ -6,7 +6,7 @@
 
 ```js {2}
 const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().trim();
+const input = fs.readFileSync(0).toString().trim();
 ```
 
 `trim(){:js}` 함수는 문자열의 앞뒤 공백(띄어쓰기, 탭, 줄바꿈 등)을 제거해요.

@@ -1,6 +1,5 @@
 const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().split('\n');
-const [x, y] = input.map(Number);
+const [x, y] = fs.readFileSync(0).toString().split('\n').map(Number);
 
 if (x > 0 && y > 0) {
   console.log(1);

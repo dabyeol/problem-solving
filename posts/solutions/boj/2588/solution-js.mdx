@@ -6,10 +6,9 @@
 
 한 줄에 하나씩 입력받는 방법에 대해 알아봐요.
 
-```js {2-3}
+```js {2}
 const fs = require('fs');
-const input = fs.readFileSync('/dev/stdin').toString().split('\n');
-const [one, two] = input.map(Number);
+const [a, b] = fs.readFileSync(0).toString().split('\n').map(Number);
 ```
 
 `split(){:js}` 함수를 사용하여 줄바꿈 문자를 기준으로 문자열을 나누어 배열로 만들면 돼요.
