@@ -11,4 +11,4 @@ input.forEach(([i, j]) => {
   [baskets[i - 1], baskets[j - 1]] = [baskets[j - 1], baskets[i - 1]];
 });
 
-console.log(baskets.join(' '));
+console.log(...baskets);
