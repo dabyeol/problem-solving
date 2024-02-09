@@ -12,6 +12,15 @@ export const metadata: Metadata = {
     default: 'Problem Solving',
   },
   description: '기본에 충실한 문제 풀이',
+  openGraph: {
+    title: 'Problem Solving',
+    description: '기본에 충실한 문제 풀이',
+    url: 'https://ps.dabyeol.com',
+    siteName: 'Problem Solving',
+    images: [{ url: '/images/banner.jpg' }],
+    locale: 'ko_KR',
+    type: 'website',
+  },
 };
 
 export const viewport: Viewport = {
