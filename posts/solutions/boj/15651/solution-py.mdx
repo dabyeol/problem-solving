@@ -1,0 +1,11 @@
+> itertools 모듈의 product 함수를 사용하여 중복 순열을 구할 수도 있어요.
+>
+> ```python
+> from itertools import product
+>
+>
+> n, m = map(int, input().split())
+>
+> for a in product(range(1, n + 1), repeat=m):
+>     print(*a)
+> ```

@@ -1,0 +1,11 @@
+> itertools 모듈의 combinations_with_replacement 함수를 사용하여 중복 조합을 구할 수도 있어요.
+>
+> ```python
+> from itertools import combinations_with_replacement
+>
+>
+> n, m = map(int, input().split())
+>
+> for a in combinations_with_replacement(range(1, n + 1), m):
+>     print(*a)
+> ```
