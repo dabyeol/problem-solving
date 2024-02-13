@@ -7,6 +7,7 @@ import './globals.css';
 import './normalize.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ps.dabyeol.com'),
   title: {
     template: '%s | Problem Solving',
     default: 'Problem Solving',
