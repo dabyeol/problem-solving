@@ -1,12 +1,12 @@
 function solution(arr, flag) {
   const answer = [];
-  arr.forEach((v, i) => {
+  arr.forEach((e, i) => {
     if (flag[i]) {
-      for (let j = 0; j < v * 2; j++) {
-        answer.push(v);
+      for (let j = 0; j < e * 2; j++) {
+        answer.push(e);
       }
     } else {
-      for (let j = 0; j < v; j++) {
+      for (let j = 0; j < e; j++) {
         answer.pop();
       }
     }

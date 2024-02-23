@@ -1,14 +1,14 @@
 function solution(arr) {
   let answer = 0;
-  arr.forEach(v => {
+  arr.forEach(e => {
     let prev = 0;
     let i = 0;
-    while (v !== prev) {
-      prev = v;
-      if (v >= 50 && v % 2 === 0) {
-        v /= 2;
-      } else if (v < 50 && v % 2 === 1) {
-        v = v * 2 + 1;
+    while (e !== prev) {
+      prev = e;
+      if (e >= 50 && e % 2 === 0) {
+        e /= 2;
+      } else if (e < 50 && e % 2 === 1) {
+        e = e * 2 + 1;
       }
 
       i++;

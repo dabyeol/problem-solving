@@ -3,11 +3,11 @@ array = list(map(int, input().split()))
 
 stack = []
 number = 1
-for v in array:
-    if v == number:
+for e in array:
+    if e == number:
         number += 1
     else:
-        stack.append(v)
+        stack.append(e)
 
     while stack and stack[-1] == number:
         stack.pop()

@@ -1,11 +1,11 @@
 function solution(arr) {
   const stk = [];
-  arr.forEach(v => {
-    while (stk.at(-1) >= v) {
+  arr.forEach(e => {
+    while (stk.at(-1) >= e) {
       stk.pop();
     }
 
-    stk.push(v);
+    stk.push(e);
   });
 
   return stk;

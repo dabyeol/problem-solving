@@ -12,4 +12,4 @@ def isprime(n):
 n = int(input())
 array = map(int, input().split())
 
-print(sum(int(isprime(v)) for v in array))
+print(sum(int(isprime(e)) for e in array))

@@ -1,2 +1,2 @@
 def solution(arr, delete_list):
-    return [v for v in arr if v not in delete_list]
+    return [e for e in arr if e not in delete_list]

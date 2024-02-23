@@ -3,8 +3,8 @@ array = list(map(int, input().split()))
 
 maxvalue = array[0]
 sum = 0
-for v in array:
-    sum += v
+for e in array:
+    sum += e
     maxvalue = max(maxvalue, sum)
     sum = max(sum, 0)
 

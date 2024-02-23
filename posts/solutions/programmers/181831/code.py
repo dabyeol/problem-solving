@@ -1,4 +1,4 @@
 def solution(arr):
     return int(
-        all(v == arr[j][i] for i, row in enumerate(arr) for j, v in enumerate(row))
+        all(e == arr[j][i] for i, row in enumerate(arr) for j, e in enumerate(row))
     )

@@ -8,7 +8,7 @@ function solution(arr) {
 
   const l = Math.max(r, c);
   const answer = [...Array(l)].map(() => new Array(l).fill(0));
-  arr.forEach((row, i) => row.forEach((v, j) => (answer[i][j] = v)));
+  arr.forEach((row, i) => row.forEach((e, j) => (answer[i][j] = e)));
 
   return answer;
 }

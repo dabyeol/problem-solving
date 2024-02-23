@@ -4,5 +4,5 @@ m = int(input())
 array = list(map(int, input().split()))
 
 s = set(a)
-for v in array:
-    print(int(v in s))
+for e in array:
+    print(int(e in s))

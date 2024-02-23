@@ -1,9 +1,9 @@
 function solution(board, k) {
   let answer = 0;
   board.forEach((row, i) =>
-    row.forEach((v, j) => {
+    row.forEach((e, j) => {
       if (i + j <= k) {
-        answer += v;
+        answer += e;
       }
     })
   );

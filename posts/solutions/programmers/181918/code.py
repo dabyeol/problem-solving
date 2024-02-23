@@ -1,9 +1,9 @@
 def solution(arr):
     stk = []
-    for v in arr:
-        while stk and stk[-1] >= v:
+    for e in arr:
+        while stk and stk[-1] >= e:
             stk.pop()
 
-        stk.append(v)
+        stk.append(e)
 
     return stk

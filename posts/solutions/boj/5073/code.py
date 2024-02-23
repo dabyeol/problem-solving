@@ -7,7 +7,7 @@ while True:
     if a + b <= c:
         print("Invalid")
     else:
-        if a == b and b == c:
+        if a == b == c:
             print("Equilateral")
         elif a == b or b == c:
             print("Isosceles")

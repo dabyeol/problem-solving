@@ -1,10 +1,10 @@
 function solution(s) {
   const stack = [];
-  s.split(' ').forEach(v => {
-    if (v === 'Z') {
+  s.split(' ').forEach(c => {
+    if (c === 'Z') {
       stack.pop();
     } else {
-      stack.push(Number(v));
+      stack.push(Number(c));
     }
   });
 

@@ -1,14 +1,14 @@
 def solution(arr):
     answer = 0
-    for v in arr:
+    for e in arr:
         prev = 0
         i = 0
-        while not v == prev:
-            prev = v
-            if v >= 50 and v % 2 == 0:
-                v //= 2
-            elif v < 50 and v % 2 == 1:
-                v = v * 2 + 1
+        while not e == prev:
+            prev = e
+            if e >= 50 and e % 2 == 0:
+                e //= 2
+            elif e < 50 and e % 2 == 1:
+                e = e * 2 + 1
 
             i += 1
 

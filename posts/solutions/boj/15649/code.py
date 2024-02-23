@@ -1,17 +1,17 @@
-def f(n, m, isvisited=None):
-    if isvisited is None:
-        isvisited = [False] * (n + 1)
+def f(n, m, visited=None):
+    if visited is None:
+        visited = [False] * (n + 1)
 
     if not m:
         return [()]
 
     array = []
     for i in range(1, n + 1):
-        if not isvisited[i]:
-            isvisited[i] = True
-            for a in f(n, m - 1, isvisited):
+        if not visited[i]:
+            visited[i] = True
+            for a in f(n, m - 1, visited):
                 array.append((i, *a))
-            isvisited[i] = False
+            visited[i] = False
 
     return array
 

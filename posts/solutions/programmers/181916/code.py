@@ -1,14 +1,14 @@
 def solution(a, b, c, d):
-    if a == b and b == c and c == d:
+    if a == b == c == d:
         return 1111 * a
 
-    if a == b and b == c:
+    if a == b == c:
         return (10 * a + d) ** 2
-    if a == b and b == d:
+    if a == b == d:
         return (10 * a + c) ** 2
-    if a == c and c == d:
+    if a == c == d:
         return (10 * a + b) ** 2
-    if b == c and c == d:
+    if b == c == d:
         return (10 * b + a) ** 2
 
     if a == b and c == d:

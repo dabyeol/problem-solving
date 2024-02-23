@@ -4,4 +4,4 @@ def solution(lines):
         for i in range(a, b):
             array[i + 100] += 1
 
-    return sum(v >= 2 for v in array)
+    return sum(e >= 2 for e in array)

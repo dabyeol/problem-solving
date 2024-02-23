@@ -1,3 +1,3 @@
 function solution(arr) {
-  return arr.filter((v, i) => v !== arr[i - 1]);
+  return arr.filter((e, i) => e !== arr[i - 1]);
 }

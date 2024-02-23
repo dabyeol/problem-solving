@@ -8,7 +8,7 @@ def solution(arr):
     l = max(r, c)
     answer = [[0] * l for _ in range(l)]
     for i, row in enumerate(arr):
-        for j, v in enumerate(row):
-            answer[i][j] = v
+        for j, e in enumerate(row):
+            answer[i][j] = e
 
     return answer

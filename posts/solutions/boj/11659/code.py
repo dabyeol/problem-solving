@@ -5,8 +5,8 @@ n, m = map(int, input().split())
 array = list(map(int, input().split()))
 
 prefix_sum = [0]
-for v in array:
-    prefix_sum.append(prefix_sum[-1] + v)
+for e in array:
+    prefix_sum.append(prefix_sum[-1] + e)
 
 for _ in range(m):
     i, j = map(int, sys.stdin.readline().split())

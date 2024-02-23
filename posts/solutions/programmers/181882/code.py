@@ -1,9 +1,9 @@
 def solution(arr):
     answer = arr[:]
-    for i, v in enumerate(answer):
-        if v >= 50 and v % 2 == 0:
+    for i, e in enumerate(answer):
+        if e >= 50 and e % 2 == 0:
             answer[i] /= 2
-        elif v < 50 and v % 2 == 1:
+        elif e < 50 and e % 2 == 1:
             answer[i] *= 2
 
     return answer

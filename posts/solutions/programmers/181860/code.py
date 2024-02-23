@@ -1,9 +1,9 @@
 def solution(arr, flag):
     answer = []
-    for i, v in enumerate(arr):
+    for i, e in enumerate(arr):
         if flag[i]:
-            answer += [v] * v * 2
+            answer += [e] * e * 2
         else:
-            answer = answer[:-v]
+            answer = answer[:-e]
 
     return answer

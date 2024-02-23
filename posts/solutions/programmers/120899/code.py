@@ -1,4 +1,4 @@
 def solution(array):
-    v = max(array)
+    maxvalue = max(array)
 
-    return [v, array.index(v)]
+    return [maxvalue, array.index(maxvalue)]
