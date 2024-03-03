@@ -9,7 +9,7 @@ for _ in range(t):
     x1, y1 = map(int, input().split())
     x2, y2 = map(int, input().split())
 
-    q = deque([[x1, y1, 0]])
+    q = deque([(x1, y1, 0)])
     visited = [[False] * l for _ in range(l)]
     visited[x1][y1] = True
     while q:
@@ -23,5 +23,5 @@ for _ in range(t):
             a = x + dx
             b = y + dy
             if 0 <= a < l and 0 <= b < l and not visited[a][b]:
-                q.append([a, b, c + 1])
+                q.append((a, b, c + 1))
                 visited[a][b] = True

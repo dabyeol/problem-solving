@@ -9,6 +9,6 @@ for i in range(len(a)):
         if a[i] == b[j]:
             curr[j] = (prev[j - 1] if j else 0) + 1
         else:
-            curr[j] = max(curr[j - 1] if j else 0, prev[j])
+            curr[j] = max(prev[j], curr[j - 1] if j else 0)
 
 print(curr[-1])

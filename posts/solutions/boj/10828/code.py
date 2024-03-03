@@ -3,17 +3,23 @@ import sys
 
 n = int(input())
 
+x = 0
 stack = []
 for _ in range(n):
-    cmd = sys.stdin.readline().split()
+    op = sys.stdin.readline().split()
 
-    if cmd[0] == "push":
-        stack.append(int(cmd[1]))
-    elif cmd[0] == "pop":
-        print(stack.pop() if stack else -1)
-    elif cmd[0] == "size":
-        print(len(stack))
-    elif cmd[0] == "empty":
-        print(int(not stack))
-    elif cmd[0] == "top":
-        print(stack[-1] if stack else -1)
+    c = op[0]
+    if len(op) == 2:
+        x = int(op[1])
+
+    match c:
+        case "push":
+            stack.append(x)
+        case "pop":
+            print(stack.pop() if stack else -1)
+        case "size":
+            print(len(stack))
+        case "empty":
+            print(int(not stack))
+        case "top":
+            print(stack[-1] if stack else -1)
