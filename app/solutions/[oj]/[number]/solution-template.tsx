@@ -27,21 +27,21 @@ export default function SolutionTemplate({ oj, number, language }: Props) {
       {languages.length ? (
         <>
           <Languages>
-            {languages.map(l => (
+            {languages.map(lang => (
               <Link
-                key={l}
-                href={`/solutions/${oj}/${number}/${l}
+                key={lang}
+                href={`/solutions/${oj}/${number}?language=${lang}
               `}
                 scroll={false}
                 replace
               >
                 <Language
-                  src={`/images/languages/${l}.png`}
+                  src={`/images/languages/${lang}.png`}
                   width={32}
                   height={32}
-                  alt={l}
+                  alt={lang}
                   priority
-                  disabled={l !== language}
+                  disabled={lang !== language}
                 />
               </Link>
             ))}

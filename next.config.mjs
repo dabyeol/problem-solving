@@ -8,10 +8,6 @@ import remarkMath from 'remark-math';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-  output: 'export',
-  images: {
-    unoptimized: true,
-  },
 };
 
 /** @type {import('rehype-pretty-code').Options} */

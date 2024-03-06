@@ -1,11 +1,13 @@
 import Banner from '@/components/banner';
 import SolutionItem from '@/components/solution-item';
 import { Container, List } from '@/lib/client/style';
-import { getOj, ojList } from '@/lib/server/oj';
+import { getOjById, ojs } from '@/lib/server/oj';
 import { getProblems } from '@/lib/server/post';
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return ojList.map(({ id }) => ({ oj: id }));
+  return ojs.map(({ id }) => ({ oj: id }));
 }
 
 interface Props {
@@ -15,7 +17,7 @@ interface Props {
 }
 
 export function generateMetadata({ params: { oj } }: Props) {
-  return { title: getOj(oj)?.name };
+  return { title: getOjById(oj)!.name };
 }
 
 export default function Page({ params: { oj } }: Props) {
@@ -23,7 +25,7 @@ export default function Page({ params: { oj } }: Props) {
 
   return (
     <>
-      <Banner small>{getOj(oj)?.name}</Banner>
+      <Banner small>{getOjById(oj)!.name}</Banner>
 
       <Container>
         <List>

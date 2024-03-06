@@ -1,4 +1,4 @@
-export const ojList = [
+export const ojs = [
   {
     id: 'boj',
     name: '백준 온라인 저지',
@@ -26,6 +26,6 @@ export const ojList = [
   },
 ];
 
-export function getOj(id: string) {
-  return ojList.find(oj => oj.id === id);
+export function getOjById(id: string) {
+  return ojs.find(oj => oj.id === id);
 }

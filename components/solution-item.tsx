@@ -93,7 +93,7 @@ export default function SolutionItem({
 
       <Languages>
         {languages.map(language => (
-          <Link href={`${href}/${language}`} key={language}>
+          <Link href={`${href}?language=${language}`} key={language}>
             <Language
               src={`/images/languages/${language}.png`}
               width={24}

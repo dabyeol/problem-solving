@@ -4,21 +4,19 @@ import { sync } from 'glob';
 import matter from 'gray-matter';
 import dynamic from 'next/dynamic';
 import { ProblemData } from '../interface';
+import { getLanguageById, getLanguageByExtension } from './language';
 
 /**
  * Generate the solutions params.
  * @returns The solutions params.
  */
 export function generateSolutionsParams() {
-  const paths = sync('posts/solutions/*/*/{problem.mdx,code.*}');
+  const paths = sync('posts/solutions/*/*/problem.mdx');
 
   return paths.map(path => {
-    const [oj, ...slug] = path
-      .replace(/\/problem\.mdx|code\./g, '')
-      .split('/')
-      .slice(2);
+    const [oj, number] = path.split('/').slice(2, -1);
 
-    return { oj, slug };
+    return { oj, number };
   });
 }
 
@@ -94,9 +92,17 @@ export function getCommonSolution(oj: string, number: number | string) {
  * @returns The languages of the solution.
  */
 export function getSolutionLanguages(oj: string, number: number | string) {
-  const paths = sync(`posts/solutions/${oj}/${number}/code.*`).sort();
+  const paths = sync(`posts/solutions/${oj}/${number}/code*`).sort();
 
-  return paths.map(path => path.split('.').at(-1)!);
+  return paths.map(path => {
+    const [filename, extension] = path.split('/')[4].split('.');
+
+    if (filename.includes('-')) {
+      return getLanguageById(filename.split('-')[1])!.id;
+    }
+
+    return getLanguageByExtension(extension)!.id;
+  });
 }
 
 /**
@@ -137,16 +143,20 @@ export function getSolutionCode(
   number: number | string,
   language: string
 ) {
-  const exists = existsSync(`posts/solutions/${oj}/${number}/code.${language}`);
+  const extension = getLanguageById(language)?.extension;
 
-  if (!exists) return;
+  if (!extension) return;
+
+  let path = `posts/solutions/${oj}/${number}/code.${extension}`;
+  if (!existsSync(path)) {
+    path = `posts/solutions/${oj}/${number}/code-${language}.${extension}`;
+
+    if (!existsSync(path)) return;
+  }
 
   return `## 코드
 
-\`\`\`${language}
-${
-  language &&
-  readFileSync(`posts/solutions/${oj}/${number}/code.${language}`, 'utf-8')
-}\`\`\`
+\`\`\`${extension}
+${readFileSync(path, 'utf-8')}\`\`\`
 `;
 }
