@@ -1,11 +1,11 @@
-import { ojList } from '@/lib/server/oj';
+import { ojs } from '@/lib/server/oj';
 import { generateSolutionsParams } from '@/lib/server/post';
 import type { MetadataRoute } from 'next';
 
 const baseUrl = 'https://ps.dabyeol.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const ojsSitemap = ojList.map(({ id }) => ({
+  const ojsSitemap = ojs.map(({ id }) => ({
     url: `${baseUrl}/solutions/${id}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
