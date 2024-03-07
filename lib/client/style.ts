@@ -132,7 +132,7 @@ export const Prose = styled.article`
     text-underline-offset: 1px;
   }
 
-  [data-rehype-pretty-code-fragment],
+  figure,
   blockquote {
     margin-bottom: 2rem; /* 32px */
   }
